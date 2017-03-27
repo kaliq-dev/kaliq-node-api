@@ -6,7 +6,6 @@ import { HomeController } from '../controllers/home.controller';
 
 const router: Router = Router();
 // instantiating controllers
-let homeController = new HomeController();
 
 /*
 * API endpoints are defined here 
@@ -17,11 +16,11 @@ router.get('/', (req: Request, res: Response) => {
 });
 
 router.get('/home', (req: Request, res: Response) => {
-    homeController.getHome(req, res);
+    HomeController.getHome(req, res);
 });
 
-router.get('/home/person',(req:Request, res:Response) => {
-    homeController.getPerson(req,res);
+router.get('/home/person/all',(req:Request, res:Response) => {
+    HomeController.getAllPerson(req,res);
 });
 
 

@@ -1,23 +1,20 @@
 import { Router, Request, Response } from 'express';
-import { Person } from '../database/models/Person';
+import { PersonModel } from '../database/models/person.model';
+import { Person } from '../classes/Person';
 /*
 * Controller to handle request to /home 
 */
 export class HomeController{
-
+    static personModel = new PersonModel();
     constructor(){}
 
-    getHome(req:Request,res:Response):Response{
+    static getHome(req:Request,res:Response):Response{
        return res.send("Welcome To API Home !!");
     }
 
-    getPerson(req:Request,res:Response):Response{
-        let person:Person = {
-            id:1,
-            name: "Abrar",
-            email: "shariarabrar@gmail.com",
-            skills: ["C/C++","JavaScript","TypeScript","Nodejs"]
-        }
-        return res.send(person);
+    static getAllPerson(req:Request,res:Response):Response{
+        let data = HomeController.personModel.getAllPerson();
+        // console.log(data);
+        return res.send(data);
     }
 }
