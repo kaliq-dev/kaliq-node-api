@@ -1,5 +1,5 @@
 {
-  "name": "node-typescript-playground",
+  "name": "kaliq-node-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,13 +11,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.17.2",
+    "busboy": "^0.2.14",
     "concurrently": "^3.4.0",
     "express": "^4.15.2",
     "mongoose": "^4.9.2"
   },
   "devDependencies": {
-    "@types/mongodb": "^2.1.41",
-    "@types/mongoose": "^4.7.9",
     "nodemon": "^1.11.0"
   }
 }
