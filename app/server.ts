@@ -2,6 +2,9 @@ import * as express from "express";
 import {ApiRoute} from "./routing/api.routes";
 import {BrandApiRoute} from "./routing/brand-api.routes";
 import {SupplierApiRoute} from "./routing/supplier-api.routes";
+import {CategoryApiRoute} from "./routing/category-api.routes";
+import {ProductApiRoute} from "./routing/product-api.routes";
+
 var bodyParser = require('body-parser');
 
 const app: express.Application = express();
@@ -26,7 +29,8 @@ app.use(bodyParser.json());
 app.use('/api', ApiRoute);
 app.use('/api/brand', BrandApiRoute);
 app.use('/api/supplier', SupplierApiRoute);
-
+app.use('/api/category', CategoryApiRoute);
+app.use('/api/product', ProductApiRoute);
 
 app.listen(port, () => {
     console.log(`Listening at port :${port}`);

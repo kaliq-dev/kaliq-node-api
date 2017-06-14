@@ -1,9 +1,9 @@
 /*
- * This controller handles all the request to /api/brand
+ * This controller handles all the request to /api/product
  *
  */
 import {Router, Request, Response} from 'express';
-export class BrandController {
+export class ProductController {
     constructor() {
     }
 

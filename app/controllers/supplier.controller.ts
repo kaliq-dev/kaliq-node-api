@@ -9,6 +9,6 @@ export class SupplierController {
 
     static create(req: Request, res: Response) {
         let data = req.body;
-        res.send(req.body);
+        res.send({status: true});
     }
 }

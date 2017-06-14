@@ -9,7 +9,7 @@ export class FileUploadController {
         let busboy = new Busboy({headers: req.headers});
 
         busboy.on('file', function (fieldname, file, filename, encoding, mimetype) {
-            var saveTo = path.join(__dirname, '../../../','uploads', path.basename(filename));
+            var saveTo = path.join(__dirname, '../../../', 'uploads', path.basename(filename));
             file.pipe(fs.createWriteStream(saveTo));
         });
 
