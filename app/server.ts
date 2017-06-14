@@ -1,6 +1,7 @@
-import * as express from 'express';
-import {ApiRoute} from './routing/api.routes';
+import * as express from "express";
+import {ApiRoute} from "./routing/api.routes";
 import {BrandApiRoute} from "./routing/brand-api.routes";
+import {SupplierApiRoute} from "./routing/supplier-api.routes";
 var bodyParser = require('body-parser');
 
 const app: express.Application = express();
@@ -21,10 +22,11 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-
 // api router endpoint
 app.use('/api', ApiRoute);
 app.use('/api/brand', BrandApiRoute);
+app.use('/api/supplier', SupplierApiRoute);
+
 
 app.listen(port, () => {
     console.log(`Listening at port :${port}`);
