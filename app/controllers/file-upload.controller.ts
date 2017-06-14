@@ -5,7 +5,6 @@ import * as Busboy from 'busboy';
 
 import {Router, Request, Response} from 'express';
 
-
 export class FileUploadController {
     static uploadFile(req: Request, res: Response) {
         let busboy = new Busboy({headers: req.headers});
@@ -17,7 +16,7 @@ export class FileUploadController {
 
         busboy.on('finish', function () {
             res.writeHead(200, {'Connection': 'close'});
-            res.end("That's all folks!");
+            res.end("File uploaded successfully");
         });
         return req.pipe(busboy);
     }

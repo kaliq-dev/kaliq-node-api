@@ -4,6 +4,7 @@
  */
 import {Router, Request, Response} from 'express';
 import {FileUploadController} from '../controllers/file-upload.controller';
+import {BrandController} from "../controllers/brand.controller";
 
 const router: Router = Router();
 
@@ -16,8 +17,12 @@ router.get('/:id', (req: Request, res: Response) => {
 });
 
 router.post('/create', (req: Request, res: Response) => {
-    FileUploadController.uploadFile(req, res);
+    BrandController.create(req, res);
 });
+
+router.post('/upload-image', (req: Request, res: Response) => {
+    FileUploadController.uploadFile(req, res);
+})
 
 router.put('/update/:id', (req: Request, res: Response) => {
 
