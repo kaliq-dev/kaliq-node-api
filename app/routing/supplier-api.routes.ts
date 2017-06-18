@@ -9,7 +9,7 @@ import {SupplierController} from "../controllers/supplier.controller";
 const router: Router = Router();
 
 router.get('/', (req: Request, res: Response) => {
-
+    SupplierController.readAll(req, res);
 });
 
 router.get('/:id', (req: Request, res: Response) => {

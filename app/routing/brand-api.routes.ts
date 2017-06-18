@@ -9,7 +9,7 @@ import {BrandController} from "../controllers/brand.controller";
 const router: Router = Router();
 
 router.get('/', (req: Request, res: Response) => {
-
+    BrandController.readAll(req, res);
 });
 
 router.get('/:id', (req: Request, res: Response) => {

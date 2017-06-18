@@ -1,4 +1,6 @@
 import * as express from "express";
+import {sequelize} from "./database/db.config";
+
 import {ApiRoute} from "./routing/api.routes";
 import {BrandApiRoute} from "./routing/brand-api.routes";
 import {SupplierApiRoute} from "./routing/supplier-api.routes";
@@ -34,4 +36,11 @@ app.use('/api/product', ProductApiRoute);
 
 app.listen(port, () => {
     console.log(`Listening at port :${port}`);
+    sequelize.authenticate()
+        .then(() => {
+            console.log('Connection has been established successfully');
+        })
+        .catch((err) => {
+            console.log("Unable to connect to datbase",err);
+        })
 });

@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f27db41f-6b3a-4bbc-aa01-56e58c59c5f2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/brand.controller.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/routing/brand-api.routes.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/home.controller.ts" afterPath="$PROJECT_DIR$/app/controllers/home.controller.ts" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/database/models/person.model.ts" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/brand.controller.ts" afterPath="$PROJECT_DIR$/app/controllers/brand.controller.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/db.config.ts" afterPath="$PROJECT_DIR$/app/database/db.config.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/models/person.model.ts" afterPath="$PROJECT_DIR$/app/database/models/person.model.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routing/api.routes.ts" afterPath="$PROJECT_DIR$/app/routing/api.routes.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/server.ts" afterPath="$PROJECT_DIR$/app/server.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -24,14 +22,14 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.7839607">
+    <splitter split-orientation="horizontal" split-proportion="0.5310769">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="server.ts" pinned="false" current-in-tab="true">
+          <file leaf-file-name="server.ts" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/server.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="183">
-                  <caret line="21" column="30" lean-forward="true" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+                <state relative-caret-position="264">
+                  <caret line="31" column="13" lean-forward="false" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
                   <folding>
                     <element signature="e#0#35#0" expanded="true" />
                   </folding>
@@ -39,10 +37,20 @@
               </provider>
             </entry>
           </file>
+          <file leaf-file-name="brand.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/models/brand.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="216">
+                  <caret line="9" column="13" lean-forward="true" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file leaf-file-name="api.routes.ts" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/routing/api.routes.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="360">
+                <state relative-caret-position="240">
                   <caret line="15" column="37" lean-forward="false" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
                   <folding>
                     <element signature="n#!!doc" expanded="true" />
@@ -56,7 +64,7 @@
             <entry file="file://$PROJECT_DIR$/app/routing/brand-api.routes.ts">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="288">
-                  <caret line="21" column="3" lean-forward="true" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
+                  <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
                   <folding>
                     <element signature="n#!!doc" expanded="true" />
                   </folding>
@@ -67,8 +75,8 @@
           <file leaf-file-name="brand.controller.ts" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/controllers/brand.controller.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="168">
-                  <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+                <state relative-caret-position="120">
+                  <caret line="5" column="43" lean-forward="false" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
                   <folding>
                     <element signature="n#!!doc" expanded="true" />
                   </folding>
@@ -76,21 +84,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="person.model.ts" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/database/models/person.model.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="db.config.ts" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/database/db.config.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                <state relative-caret-position="72">
+                  <caret line="3" column="21" lean-forward="true" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
                   <folding />
                 </state>
               </provider>
@@ -102,7 +100,33 @@
                 <state relative-caret-position="120">
                   <caret line="5" column="15" lean-forward="false" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
                   <folding>
-                    <marker date="1497342009068" expanded="true" signature="49159:49167" ph="{&quot;version&quot;: &quot;1.2.0&quot;...}" />
+                    <marker date="1497548110480" expanded="true" signature="63953:63959" ph="{&quot;version&quot;: &quot;0.3.3&quot;...}" />
+                    <marker date="1497548110480" expanded="true" signature="63977:64143" ph="{&quot;version&quot;: &quot;1.3.1&quot;...}" />
+                    <marker date="1497548110480" expanded="true" signature="64168:64367" ph="{&quot;version&quot;: &quot;0.0.4&quot;...}" />
+                    <marker date="1497548110480" expanded="true" signature="64389:64582" ph="{&quot;version&quot;: &quot;1.0.0&quot;...}" />
+                    <marker date="1497548110480" expanded="true" signature="64604:64778" ph="{&quot;version&quot;: &quot;0.1.2&quot;...}" />
+                    <marker date="1497548110480" expanded="true" signature="64802:64980" ph="{&quot;version&quot;: &quot;1.0.2&quot;...}" />
+                    <marker date="1497548110480" expanded="true" signature="65003:65696" ph="{&quot;version&quot;: &quot;1.0.1&quot;...}" />
+                    <marker date="1497548110480" expanded="true" signature="65216:65690" ph="{...}" />
+                    <marker date="1497548110480" expanded="true" signature="65240:65449" ph="{&quot;version&quot;: &quot;2.1.1&quot;...}" />
+                    <marker date="1497548110480" expanded="true" signature="65473:65682" ph="{&quot;version&quot;: &quot;3.0.1&quot;...}" />
+                    <marker date="1497548110480" expanded="true" signature="65716:65886" ph="{&quot;version&quot;: &quot;0.3.0&quot;...}" />
+                    <marker date="1497548110480" expanded="true" signature="65915:66122" ph="{&quot;version&quot;: &quot;2.0.1&quot;...}" />
+                    <marker date="1497548110480" expanded="true" signature="66146:66324" ph="{&quot;version&quot;: &quot;3.2.3&quot;...}" />
+                    <marker date="1497548110480" expanded="true" signature="66345:66517" ph="{&quot;version&quot;: &quot;1.0.8&quot;...}" />
+                    <marker date="1497548110480" expanded="true" signature="66549:66743" ph="{&quot;version&quot;: &quot;1.1.2&quot;...}" />
+                    <marker date="1497548110480" expanded="true" signature="66760:66943" ph="{&quot;version&quot;: &quot;2.3.8&quot;...}" />
+                    <marker date="1497548110480" expanded="true" signature="66962:67149" ph="{&quot;version&quot;: &quot;2.0.0&quot;...}" />
+                    <marker date="1497548110480" expanded="true" signature="67173:67351" ph="{&quot;version&quot;: &quot;1.0.1&quot;...}" />
+                    <marker date="1497548110480" expanded="true" signature="67366:67545" ph="{&quot;version&quot;: &quot;1.0.0&quot;...}" />
+                    <marker date="1497548110480" expanded="true" signature="67564:67732" ph="{&quot;version&quot;: &quot;1.1.0&quot;...}" />
+                    <marker date="1497548110480" expanded="true" signature="67749:67915" ph="{&quot;version&quot;: &quot;1.6.15&quot;...}" />
+                    <marker date="1497548110480" expanded="true" signature="67934:68121" ph="{&quot;version&quot;: &quot;0.0.3&quot;...}" />
+                    <marker date="1497548110480" expanded="true" signature="68137:68299" ph="{&quot;version&quot;: &quot;1.0.0&quot;...}" />
+                    <marker date="1497548110480" expanded="true" signature="68565:68774" ph="{&quot;version&quot;: &quot;2.1.1&quot;...}" />
+                    <marker date="1497548110480" expanded="true" signature="68799:69010" ph="{&quot;version&quot;: &quot;2.2.1&quot;...}" />
+                    <marker date="1497548110480" expanded="true" signature="69029:69228" ph="{&quot;version&quot;: &quot;1.1.3&quot;...}" />
+                    <marker date="1497548110480" expanded="true" signature="69250:69455" ph="{&quot;version&quot;: &quot;2.0.0&quot;...}" />
                   </folding>
                 </state>
               </provider>
@@ -125,7 +149,7 @@
           <file leaf-file-name="home.controller.ts" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/controllers/home.controller.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="72">
+                <state relative-caret-position="24">
                   <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
                   <folding>
                     <element signature="n#!!doc" expanded="true" />
@@ -134,15 +158,24 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="api.routes.ts" pinned="false" current-in-tab="true">
+          <file leaf-file-name="api.routes.ts" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/routing/api.routes.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="336">
-                  <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+                <state relative-caret-position="168">
+                  <caret line="7" column="21" lean-forward="false" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="22" />
                   <folding>
                     <element signature="n#!!doc" expanded="true" />
-                    <element signature="e#106#156#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="20170615204528-create-brand.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/migrations/20170615204528-create-brand.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="216">
+                  <caret line="9" column="7" lean-forward="false" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -162,9 +195,11 @@
         <option value="$PROJECT_DIR$/app/database/db.config.ts" />
         <option value="$PROJECT_DIR$/app/controllers/home.controller.ts" />
         <option value="$PROJECT_DIR$/app/routing/api.routes.ts" />
-        <option value="$PROJECT_DIR$/app/controllers/brand.controller.ts" />
         <option value="$PROJECT_DIR$/app/routing/brand-api.routes.ts" />
         <option value="$PROJECT_DIR$/app/server.ts" />
+        <option value="$PROJECT_DIR$/migrations/20170615204528-create-brand.js" />
+        <option value="$PROJECT_DIR$/models/brand.js" />
+        <option value="$PROJECT_DIR$/app/controllers/brand.controller.ts" />
       </list>
     </option>
   </component>
@@ -180,9 +215,9 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="749" />
-    <option name="y" value="24" />
-    <option name="width" value="1855" />
+    <option name="x" value="609" />
+    <option name="y" value="34" />
+    <option name="width" value="1868" />
     <option name="height" value="1020" />
   </component>
   <component name="ProjectView">
@@ -200,7 +235,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -223,6 +257,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node-api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node-api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -241,12 +289,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="routing" />
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -348,27 +397,27 @@
       <updated>1497333509153</updated>
       <workItem from="1497333510448" duration="8720000" />
       <workItem from="1497360923039" duration="3905000" />
+      <workItem from="1497559801469" duration="1700000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12625000" />
+    <option name="totallyTimeSpent" value="14325000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="749" y="24" width="1855" height="1020" extended-state="0" />
-    <editor active="true" />
+    <frame x="609" y="34" width="1868" height="1020" extended-state="0" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17574124" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2012848" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21144025" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.46994534" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3704918" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299285" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -390,6 +439,117 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/server.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="21" column="3" lean-forward="false" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routing/brand-api.routes.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/brand.controller.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/models/person.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/db.config.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="5" column="15" lean-forward="false" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+          <folding>
+            <marker date="1497548110480" expanded="true" signature="63953:63959" ph="{&quot;version&quot;: &quot;0.3.3&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="63977:64143" ph="{&quot;version&quot;: &quot;1.3.1&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="64168:64367" ph="{&quot;version&quot;: &quot;0.0.4&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="64389:64582" ph="{&quot;version&quot;: &quot;1.0.0&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="64604:64778" ph="{&quot;version&quot;: &quot;0.1.2&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="64802:64980" ph="{&quot;version&quot;: &quot;1.0.2&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="65003:65696" ph="{&quot;version&quot;: &quot;1.0.1&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="65216:65690" ph="{...}" />
+            <marker date="1497548110480" expanded="true" signature="65240:65449" ph="{&quot;version&quot;: &quot;2.1.1&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="65473:65682" ph="{&quot;version&quot;: &quot;3.0.1&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="65716:65886" ph="{&quot;version&quot;: &quot;0.3.0&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="65915:66122" ph="{&quot;version&quot;: &quot;2.0.1&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="66146:66324" ph="{&quot;version&quot;: &quot;3.2.3&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="66345:66517" ph="{&quot;version&quot;: &quot;1.0.8&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="66549:66743" ph="{&quot;version&quot;: &quot;1.1.2&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="66760:66943" ph="{&quot;version&quot;: &quot;2.3.8&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="66962:67149" ph="{&quot;version&quot;: &quot;2.0.0&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="67173:67351" ph="{&quot;version&quot;: &quot;1.0.1&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="67366:67545" ph="{&quot;version&quot;: &quot;1.0.0&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="67564:67732" ph="{&quot;version&quot;: &quot;1.1.0&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="67749:67915" ph="{&quot;version&quot;: &quot;1.6.15&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="67934:68121" ph="{&quot;version&quot;: &quot;0.0.3&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="68137:68299" ph="{&quot;version&quot;: &quot;1.0.0&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="68565:68774" ph="{&quot;version&quot;: &quot;2.1.1&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="68799:69010" ph="{&quot;version&quot;: &quot;2.2.1&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="69029:69228" ph="{&quot;version&quot;: &quot;1.1.3&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="69250:69455" ph="{&quot;version&quot;: &quot;2.0.0&quot;...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/classes/Person.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="16" lean-forward="false" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/home.controller.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routing/api.routes.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="15" column="37" lean-forward="false" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#106#156#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/server.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
@@ -431,7 +591,33 @@
         <state relative-caret-position="120">
           <caret line="5" column="15" lean-forward="false" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
           <folding>
-            <marker date="1497342009068" expanded="true" signature="49159:49167" ph="{&quot;version&quot;: &quot;1.2.0&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="63953:63959" ph="{&quot;version&quot;: &quot;0.3.3&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="63977:64143" ph="{&quot;version&quot;: &quot;1.3.1&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="64168:64367" ph="{&quot;version&quot;: &quot;0.0.4&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="64389:64582" ph="{&quot;version&quot;: &quot;1.0.0&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="64604:64778" ph="{&quot;version&quot;: &quot;0.1.2&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="64802:64980" ph="{&quot;version&quot;: &quot;1.0.2&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="65003:65696" ph="{&quot;version&quot;: &quot;1.0.1&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="65216:65690" ph="{...}" />
+            <marker date="1497548110480" expanded="true" signature="65240:65449" ph="{&quot;version&quot;: &quot;2.1.1&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="65473:65682" ph="{&quot;version&quot;: &quot;3.0.1&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="65716:65886" ph="{&quot;version&quot;: &quot;0.3.0&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="65915:66122" ph="{&quot;version&quot;: &quot;2.0.1&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="66146:66324" ph="{&quot;version&quot;: &quot;3.2.3&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="66345:66517" ph="{&quot;version&quot;: &quot;1.0.8&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="66549:66743" ph="{&quot;version&quot;: &quot;1.1.2&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="66760:66943" ph="{&quot;version&quot;: &quot;2.3.8&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="66962:67149" ph="{&quot;version&quot;: &quot;2.0.0&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="67173:67351" ph="{&quot;version&quot;: &quot;1.0.1&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="67366:67545" ph="{&quot;version&quot;: &quot;1.0.0&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="67564:67732" ph="{&quot;version&quot;: &quot;1.1.0&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="67749:67915" ph="{&quot;version&quot;: &quot;1.6.15&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="67934:68121" ph="{&quot;version&quot;: &quot;0.0.3&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="68137:68299" ph="{&quot;version&quot;: &quot;1.0.0&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="68565:68774" ph="{&quot;version&quot;: &quot;2.1.1&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="68799:69010" ph="{&quot;version&quot;: &quot;2.2.1&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="69029:69228" ph="{&quot;version&quot;: &quot;1.1.3&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="69250:69455" ph="{&quot;version&quot;: &quot;2.0.0&quot;...}" />
           </folding>
         </state>
       </provider>
@@ -483,14 +669,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/db.config.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tsconfig.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
@@ -517,7 +695,33 @@
         <state relative-caret-position="120">
           <caret line="5" column="15" lean-forward="false" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
           <folding>
-            <marker date="1497342009068" expanded="true" signature="49159:49167" ph="{&quot;version&quot;: &quot;1.2.0&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="63953:63959" ph="{&quot;version&quot;: &quot;0.3.3&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="63977:64143" ph="{&quot;version&quot;: &quot;1.3.1&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="64168:64367" ph="{&quot;version&quot;: &quot;0.0.4&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="64389:64582" ph="{&quot;version&quot;: &quot;1.0.0&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="64604:64778" ph="{&quot;version&quot;: &quot;0.1.2&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="64802:64980" ph="{&quot;version&quot;: &quot;1.0.2&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="65003:65696" ph="{&quot;version&quot;: &quot;1.0.1&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="65216:65690" ph="{...}" />
+            <marker date="1497548110480" expanded="true" signature="65240:65449" ph="{&quot;version&quot;: &quot;2.1.1&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="65473:65682" ph="{&quot;version&quot;: &quot;3.0.1&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="65716:65886" ph="{&quot;version&quot;: &quot;0.3.0&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="65915:66122" ph="{&quot;version&quot;: &quot;2.0.1&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="66146:66324" ph="{&quot;version&quot;: &quot;3.2.3&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="66345:66517" ph="{&quot;version&quot;: &quot;1.0.8&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="66549:66743" ph="{&quot;version&quot;: &quot;1.1.2&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="66760:66943" ph="{&quot;version&quot;: &quot;2.3.8&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="66962:67149" ph="{&quot;version&quot;: &quot;2.0.0&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="67173:67351" ph="{&quot;version&quot;: &quot;1.0.1&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="67366:67545" ph="{&quot;version&quot;: &quot;1.0.0&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="67564:67732" ph="{&quot;version&quot;: &quot;1.1.0&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="67749:67915" ph="{&quot;version&quot;: &quot;1.6.15&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="67934:68121" ph="{&quot;version&quot;: &quot;0.0.3&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="68137:68299" ph="{&quot;version&quot;: &quot;1.0.0&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="68565:68774" ph="{&quot;version&quot;: &quot;2.1.1&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="68799:69010" ph="{&quot;version&quot;: &quot;2.2.1&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="69029:69228" ph="{&quot;version&quot;: &quot;1.1.3&quot;...}" />
+            <marker date="1497548110480" expanded="true" signature="69250:69455" ph="{&quot;version&quot;: &quot;2.0.0&quot;...}" />
           </folding>
         </state>
       </provider>
@@ -532,39 +736,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/home.controller.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
+        <state relative-caret-position="24">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/brand.controller.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routing/api.routes.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="15" column="37" lean-forward="false" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#106#156#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routing/brand-api.routes.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="21" column="3" lean-forward="true" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -573,11 +746,74 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/server.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="21" column="30" lean-forward="true" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+        <state relative-caret-position="264">
+          <caret line="31" column="13" lean-forward="false" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routing/api.routes.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="15" column="37" lean-forward="false" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#106#156#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/models/brand.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="15" column="27" lean-forward="false" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/db.config.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="21" lean-forward="true" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routing/brand-api.routes.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/migrations/20170615204528-create-brand.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="9" column="7" lean-forward="false" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/brand.controller.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="5" column="43" lean-forward="false" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/brand.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="9" column="13" lean-forward="true" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
