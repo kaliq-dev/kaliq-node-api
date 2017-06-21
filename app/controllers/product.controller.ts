@@ -11,4 +11,5 @@ export class ProductController {
         let data = req.body;
         res.send({status: true});
     }
+
 }

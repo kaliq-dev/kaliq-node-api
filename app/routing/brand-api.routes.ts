@@ -29,7 +29,7 @@ router.put('/update/:id', (req: Request, res: Response) => {
 });
 
 router.delete('/delete/:id', (req: Request, res: Response) => {
-
+    BrandController.deleteById(req, res);
 });
 
 

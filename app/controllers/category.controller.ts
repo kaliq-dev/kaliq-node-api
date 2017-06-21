@@ -28,44 +28,69 @@ export class CategoryController {
     }
 
     static readAll(req: Request, res: Response) {
+        let result_data;
+
+        function callback() {
+            console.log("callback");
+        }
+
+        function newcallback() {
+            console.log("callback");
+        }
+
         sequelize.query("SELECT C1.id, C1.name, C1.parent,C1.image_list, C1.sub_category, C1.createdAt, C1.updatedAt, C2.name AS parent_name FROM Categories C1, Categories C2 WHERE C1.parent=C2.id ORDER BY C1.createdAt DESC")
             .spread((results, metadata) => {
-                let new_res = [];
-                async.each(results, (data) => {
-                    let newData = data;
-                    newData["sub_category_list"] = [];
-                    if (!_.isEmpty(data.sub_category)) {
-                        async.each(data.sub_category, (item, callback) => {
-                            model.Category.findOne({
-                                where: {id: item},
-                                attributes: ['id', 'name', 'parent', 'image_list', 'sub_category', 'createdAt', 'updatedAt']
-                            }).then((category) => {
-                                newData["sub_category_list"].push(category['dataValues']);
+                result_data = results;
+                async.each(results, function (data, callback) {
+                    let category = data;
+                    category["sub_category_list"] = [];
+                    if (data['sub_category'] !== null) {
+                        async.each(data['sub_category'], function (item, newcallback) {
+                            // database query here
+                            model.Category.findById(item).then((sub_category) => {
+                                category["sub_category_list"].push(sub_category['dataValues']);
+                            }).then(() => {
+                                newcallback();
                             });
-                            callback();
-                        }, (err) => {
+                        }, function (err) {
                             if (err) {
-                                console.log("Error " + err);
+                                console.log("error in all sub-category");
                             } else {
-                                console.log("Loop for newData done");
-                                new_res.push(newData);
+                                callback();
+                                console.log("Read all sub-category data");
                             }
                         });
                     } else {
-                        new_res.push(newData);
+                        callback();
                     }
-                }, (err) => {
+                }, function (err) {
                     if (err) {
-                        res.send({status: false});
+                        console.log("Error in data");
                     } else {
-                        console.log("Main body is done");
-                        res.send(new_res);
+                        console.log("All data read");
+                        res.send(result_data);
                     }
                 });
             })
             .catch((err) => {
-                res.send({status: false});
-            })
+                if (err) {
+                    res.send({status: false});
+                } else {
+                    res.send({status: true});
+                }
+            });
+    }
+
+    static deleteById(req: Request, res: Response) {
+        model.Category.destroy({
+            where: {
+                id: req.params.id
+            }
+        }).then(() => {
+            res.send({status: true});
+        }).catch((err) => {
+            res.send({status: false});
+        });
     }
 
 }
