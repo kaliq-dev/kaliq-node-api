@@ -31,7 +31,7 @@ export class BrandController {
             return res.send({data: brand});
         }).catch((err) => {
             return res.send({status: false});
-        })
+        });
     }
 
 

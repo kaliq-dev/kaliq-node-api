@@ -41,24 +41,28 @@ export class CategoryController {
         sequelize.query("SELECT C1.id, C1.name, C1.parent,C1.image_list, C1.sub_category, C1.createdAt, C1.updatedAt, C2.name AS parent_name FROM Categories C1, Categories C2 WHERE C1.parent=C2.id ORDER BY C1.createdAt DESC")
             .spread((results, metadata) => {
                 result_data = results;
-                console.log(result_data);
                 async.each(results, function (data, callback) {
                     let category = data;
                     category["sub_category_list"] = [];
-                    if (data['sub_category'] !== null) {
+                    if (!_.isEmpty(data['sub_category'])) {
                         async.each(data['sub_category'], function (item, newcallback) {
                             // database query here
                             model.Category.findById(item).then((sub_category) => {
-                                category["sub_category_list"].push(sub_category['dataValues']);
+                                if (_.isUndefined(sub_category) || _.isEmpty(sub_category)) {
+                                    // console.log("No sub-category");
+                                } else {
+                                    // console.log(sub_category);
+                                    category["sub_category_list"].push(sub_category['dataValues']);
+                                }
                             }).then(() => {
                                 newcallback();
                             });
                         }, function (err) {
                             if (err) {
-                                console.log("error in all sub-category");
+                                // console.log("error in all sub-category");
                             } else {
                                 callback();
-                                console.log("Read all sub-category data");
+                                // console.log("Read all sub-category data");
                             }
                         });
                     } else {
@@ -66,10 +70,10 @@ export class CategoryController {
                     }
                 }, function (err) {
                     if (err) {
-                        console.log("Error in data");
+                        // console.log("Error in data");
                     } else {
-                        console.log("All data read");
-                        res.send(result_data);
+                        // console.log("All data read");
+                        res.send({data: result_data});
                     }
                 });
             })

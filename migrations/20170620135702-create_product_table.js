@@ -1,5 +1,4 @@
 'use strict';
-
 module.exports = {
     up: function (queryInterface, Sequelize) {
         return queryInterface.createTable('Products', {
@@ -9,16 +8,16 @@ module.exports = {
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            supplier: {
+            supplier_id: {
                 type: Sequelize.INTEGER,
                 references: {
-                    model: 'Brands',
+                    model: 'Suppliers',
                     key: 'id'
                 },
                 onUpdate: 'cascade',
                 onDelete: 'cascade'
             },
-            category: {
+            category_id: {
                 type: Sequelize.INTEGER,
                 references: {
                     model: 'Categories',
@@ -27,7 +26,7 @@ module.exports = {
                 onUpdate: 'cascade',
                 onDelete: 'cascade'
             },
-            brand: {
+            brand_id: {
                 type: Sequelize.INTEGER,
                 references: {
                     model: 'Brands',

@@ -1,4 +1,9 @@
 'use strict';
+
+const Brand = require('./brand');
+const Category = require('./category');
+const Product = require('./product');
+
 module.exports = function (sequelize, DataTypes) {
     var Supplier = sequelize.define('Supplier', {
         name: DataTypes.STRING,
@@ -9,8 +14,13 @@ module.exports = function (sequelize, DataTypes) {
         classMethods: {
             associate: function (models) {
                 // associations can be defined here
+                // Supplier.hasMany(models.Product, {
+                //     foreignKey: 'supplier_id',
+                //     constraints: false
+                // })
             }
         }
     });
+
     return Supplier;
 };

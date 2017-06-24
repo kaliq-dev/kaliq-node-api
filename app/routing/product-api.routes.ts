@@ -6,10 +6,11 @@ import {Router, Request, Response} from 'express';
 import {FileUploadController} from '../controllers/file-upload.controller';
 import {ProductController} from '../controllers/product.controller';
 
+
 const router: Router = Router();
 
 router.get('/', (req: Request, res: Response) => {
-
+    ProductController.readAll(req, res);
 });
 
 router.get('/:id', (req: Request, res: Response) => {
