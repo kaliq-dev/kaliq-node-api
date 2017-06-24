@@ -2,6 +2,7 @@
  * This controller handles all the request to /api/product
  *
  */
+import {sequelize} from "../database/db.config";
 const Sequelize = require("sequelize");
 const model = require("../../models");
 import {Router, Request, Response} from "express";
@@ -29,12 +30,26 @@ export class ProductController {
 
     static readAll(req: Request, res: Response) {
         let result_data;
-        model.Product.findAll({
-            include: [model.Supplier]
-        }).then((product) => {
-            return res.send({data: product);
-        }).catch((err) => {
-            return res.send({status: false});
-        });
+
+        sequelize.query("SELECT Products.id, Products.name, Products.price, Products.vat, Products.image_list, Suppliers.name AS supplier_name, Brands.name as brand_name, Categories.name AS category_name FROM Products, Suppliers, Brands, Categories WHERE Products.supplier_id = Suppliers.id AND Products.category_id = Categories.id AND Products.brand_id = Brands.id ORDER BY Products.createdAt DESC")
+            .spread((results, metadata) => {
+                result_data = results;
+                res.send({data: result_data});
+            })
+            .catch((err) => {
+                if (err) {
+                    res.send({status: false});
+                } else {
+                    res.send({status: true})
+                }
+            });
+
+        // model.Product.findAll({
+        //     include: [model.Supplier]
+        // }).then((product) => {
+        //     return res.send({data: product);
+        // }).catch((err) => {
+        //     return res.send({status: false});
+        // });
     }
 }
