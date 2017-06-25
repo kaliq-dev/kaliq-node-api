@@ -30,7 +30,7 @@ router.put('/update/:id', (req: Request, res: Response) => {
 });
 
 router.delete('/delete/:id', (req: Request, res: Response) => {
-
+    ProductController.deleteById(req, res);
 });
 
 export const ProductApiRoute: Router = router;

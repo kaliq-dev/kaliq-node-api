@@ -52,4 +52,16 @@ export class ProductController {
         //     return res.send({status: false});
         // });
     }
+
+    static deleteById(req: Request, res: Response) {
+        model.Product.destroy({
+            where: {
+                id: req.params.id
+            }
+        }).then(() => {
+            res.send({status: true});
+        }).catch((err) => {
+            res.send({status: false});
+        });
+    }
 }
