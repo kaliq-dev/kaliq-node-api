@@ -25,13 +25,16 @@ export class SupplierController {
 
 
     static readAll(req: Request, res: Response) {
+        let result_data = [];
         model.Supplier.findAll({
             attributes: ['id', 'name', 'contact_no', 'email', 'attachment_list', 'createdAt', 'updatedAt'],
             order: [['createdAt', 'DESC']]
         }).then((supplier) => {
-            return res.send({data: supplier});
+            result_data = supplier;
+            return res.send({data: result_data, count: result_data.length, status: true});
         }).catch((err) => {
-            return res.send({status: false});
+            return res.send({data: result_data, count: result_data.length, status: false});
+
         })
     }
 

@@ -56,4 +56,21 @@ export class ProductController {
             res.send({status: false});
         });
     }
+
+    static filterByCategory(req: Request, res: Response) {
+        let filterId = req.body.filterList;
+        let result = [];
+        model.Product.findAll({
+            where: {
+                category_id: {
+                    $in: filterId
+                }
+            }
+        }).then((data) => {
+            result = data;
+            res.send({data: result, count: result.length, status: true});
+        }).catch((err) => {
+            res.send({data: result, count: result.length, status: false});
+        });
+    }
 }

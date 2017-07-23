@@ -33,4 +33,5 @@ router.delete('/delete/:id', (req: Request, res: Response) => {
 });
 
 
+
 export const BrandApiRoute: Router = router;

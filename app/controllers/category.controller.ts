@@ -28,7 +28,7 @@ export class CategoryController {
     }
 
     static readAll(req: Request, res: Response) {
-        let result_data;
+        let result_data = [];
 
         function callback() {
             console.log("callback");
@@ -81,17 +81,18 @@ export class CategoryController {
                 }, function (err) {
                     if (err) {
                         // console.log("Error in data");
+                        res.send({data: result_data, count: result_data.length, status: false});
                     } else {
                         // console.log("All data read");
-                        res.send({data: result_data});
+                        res.send({data: result_data, count: result_data.length, status: true});
                     }
                 });
             })
             .catch((err) => {
                 if (err) {
-                    res.send({status: false});
+                    res.send({data: result_data, count: result_data.length, status: false});
                 } else {
-                    res.send({status: true});
+                    res.send({data: result_data, count: result_data.length, status: true});
                 }
             });
     }

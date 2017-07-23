@@ -6,7 +6,6 @@ import {Router, Request, Response} from 'express';
 import {FileUploadController} from '../controllers/file-upload.controller';
 import {ProductController} from '../controllers/product.controller';
 
-
 const router: Router = Router();
 
 router.get('/', (req: Request, res: Response) => {
@@ -32,5 +31,12 @@ router.put('/update/:id', (req: Request, res: Response) => {
 router.delete('/delete/:id', (req: Request, res: Response) => {
     ProductController.deleteById(req, res);
 });
+
+
+//filter api endpoints
+router.post('/filter-by-category', (req: Request, res: Response) => {
+    ProductController.filterByCategory(req, res);
+});
+
 
 export const ProductApiRoute: Router = router;

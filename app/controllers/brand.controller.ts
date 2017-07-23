@@ -24,13 +24,15 @@ export class BrandController {
 
 
     static readAll(req: Request, res: Response) {
+        let result_data = [];
         model.Brand.findAll({
             attributes: ['id', 'name', 'image_list', 'createdAt', 'updatedAt'],
             order: [['createdAt', 'DESC']]
         }).then((brand) => {
-            return res.send({data: brand});
+            result_data = brand;
+            return res.send({data: result_data, count: result_data.length, status: true});
         }).catch((err) => {
-            return res.send({status: false});
+            return res.send({data: result_data, count: result_data.length, status: false});
         });
     }
 
