@@ -29,28 +29,20 @@ export class ProductController {
     }
 
     static readAll(req: Request, res: Response) {
-        let result_data;
+        let result_data = [];
 
         sequelize.query("SELECT Products.id, Products.name, Products.price, Products.vat, Products.image_list, Suppliers.name AS supplier_name, Brands.name as brand_name, Categories.name AS category_name FROM Products, Suppliers, Brands, Categories WHERE Products.supplier_id = Suppliers.id AND Products.category_id = Categories.id AND Products.brand_id = Brands.id ORDER BY Products.createdAt DESC")
             .spread((results, metadata) => {
                 result_data = results;
-                res.send({data: result_data});
+                res.send({data: result_data, count: result_data.length, status: true});
             })
             .catch((err) => {
                 if (err) {
-                    res.send({status: false});
+                    res.send({data: result_data, count: result_data.length, status: false});
                 } else {
-                    res.send({status: true})
+                    res.send({data: result_data, count: result_data.length, status: true});
                 }
             });
-
-        // model.Product.findAll({
-        //     include: [model.Supplier]
-        // }).then((product) => {
-        //     return res.send({data: product);
-        // }).catch((err) => {
-        //     return res.send({status: false});
-        // });
     }
 
     static deleteById(req: Request, res: Response) {
