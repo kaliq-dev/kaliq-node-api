@@ -73,4 +73,39 @@ export class ProductController {
             res.send({data: result, count: result.length, status: false});
         });
     }
+
+    static filterByBrand(req: Request, res: Response) {
+        let filterId = req.body.filterList;
+        let result = [];
+        model.Product.findAll({
+            where: {
+                brand_id: {
+                    $in: filterId
+                }
+            }
+        }).then((data) => {
+            result = data;
+            res.send({data: result, count: result.length, status: true});
+        }).catch((err) => {
+            res.send({data: result, count: result.length, status: false});
+        });
+    }
+
+
+    static filterBySupplier(req: Request, res: Response) {
+        let filterId = req.body.filterList;
+        let result = [];
+        model.Product.findAll({
+            where: {
+                supplier_id: {
+                    $in: filterId
+                }
+            }
+        }).then((data) => {
+            result = data;
+            res.send({data: result, count: result.length, status: true});
+        }).catch((err) => {
+            res.send({data: result, count: result.length, status: false});
+        });
+    }
 }

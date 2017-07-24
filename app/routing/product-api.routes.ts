@@ -34,8 +34,16 @@ router.delete('/delete/:id', (req: Request, res: Response) => {
 
 
 //filter api endpoints
-router.post('/filter-by-category', (req: Request, res: Response) => {
+router.post("/filter-by-category", (req: Request, res: Response) => {
     ProductController.filterByCategory(req, res);
+});
+
+router.post("/filter-by-brand", (req: Request, res: Response) => {
+    ProductController.filterByBrand(req, res);
+});
+
+router.post("/filter-by-supplier", (req: Request, res: Response) => {
+    ProductController.filterBySupplier(req, res);
 });
 
 
