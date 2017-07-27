@@ -8,6 +8,8 @@ const model = require("../../models");
 import {Router, Request, Response} from 'express';
 import * as path from "path";
 import * as fs from "fs";
+import * as _ from "underscore";
+import * as async from "async";
 
 export class ProductController {
     constructor() {
@@ -110,27 +112,4 @@ export class ProductController {
         });
     }
 
-
-    static getImageAsBase64(req: Request, res: Response) {
-
-        // let imgPath = path.join('..', '..', __dirname, 'uploads', '1.jpg');
-
-        res.send({status: true});
-
-        // fs.readFile(imgPath, (err, data) => {
-        //
-        //     if (err) res.status(500).send(err);
-        //
-        //     //get image file extension name
-        //     let extensionName = path.extname(`${process.cwd()}/pics/demopic.png`);
-        //
-        //     //convert image file to base64-encoded string
-        //     let base64Image = new Buffer(data, 'binary').toString('base64');
-        //
-        //     //combine all strings
-        //     let imgSrcString = `data:image/${extensionName.split('.').pop()};base64,${base64Image}`;
-        //
-        //     res.send({imgBase64: imgSrcString});
-        // });
-    }
 }

@@ -40,22 +40,25 @@ app.use('/api/product', ProductApiRoute);
 
 
 //test base64 imgae read
-app.get('/read-img', (req, res) => {
+app.post('/api/get-base64-images', (req, res) => {
 
-    let imgPath = path.join(__dirname, '..', '..', 'uploads', '1.jpg');
+    let pattern = " ",
+        re = new RegExp(pattern, "g");
+    let productList = req.body.data;
 
-    fs.readFile(imgPath, (err, data) => {
-
-        if (err) res.status(500).send(err);
-
-        let ext = path.extname(imgPath);
-
-        let base64Image = new Buffer(data, 'binary').toString('base64');
-
-        let imgSrcString = `data:image/${ext.split('.').pop()};base64,${base64Image}`;
-
-        res.send({img: imgSrcString});
+    let newProductList = productList.map((product, index) => {
+        product.image_list = product.image_list.map((item) => {
+            let newFilename = item.replace(re, '_');
+            let imgPath = path.join(__dirname, '..', '..', 'uploads', newFilename);
+            let ext = path.extname(imgPath);
+            let data = fs.readFileSync(imgPath);
+            let base64Image = new Buffer(data, 'binary').toString('base64');
+            let imgSrcString = `data:image/${ext.split('.').pop()};base64,${base64Image}`;
+            return imgSrcString;
+        });
+        return product;
     });
+    res.send({data: productList});
 });
 
 function readImageFiles() {
@@ -68,7 +71,6 @@ function readImageFiles() {
             let newFilename = file.replace(re, '_');
             let oldPath = path.join(__dirname, '..', '..', 'uploads', file);
             let newPath = path.join(__dirname, '..', '..', 'uploads', newFilename);
-
             fs.rename(oldPath, newPath, (err) => {
                 if (err) throw err;
                 console.log("renamed complete");
