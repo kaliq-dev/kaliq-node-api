@@ -46,5 +46,9 @@ router.post("/filter-by-supplier", (req: Request, res: Response) => {
     ProductController.filterBySupplier(req, res);
 });
 
+router.get("/base64", (req: Request, res: Response) => {
+    ProductController.getImageAsBase64(req, res);
+});
+
 
 export const ProductApiRoute: Router = router;

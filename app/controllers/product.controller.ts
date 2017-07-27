@@ -5,7 +5,9 @@
 import {sequelize} from "../database/db.config";
 const Sequelize = require("sequelize");
 const model = require("../../models");
-import {Router, Request, Response} from "express";
+import {Router, Request, Response} from 'express';
+import * as path from "path";
+import * as fs from "fs";
 
 export class ProductController {
     constructor() {
@@ -30,7 +32,6 @@ export class ProductController {
 
     static readAll(req: Request, res: Response) {
         let result_data = [];
-
         sequelize.query("SELECT Products.id, Products.name, Products.price, Products.vat, Products.image_list, Suppliers.name AS supplier_name, Brands.name as brand_name, Categories.name AS category_name FROM Products, Suppliers, Brands, Categories WHERE Products.supplier_id = Suppliers.id AND Products.category_id = Categories.id AND Products.brand_id = Brands.id ORDER BY Products.createdAt DESC")
             .spread((results, metadata) => {
                 result_data = results;
@@ -107,5 +108,29 @@ export class ProductController {
         }).catch((err) => {
             res.send({data: result, count: result.length, status: false});
         });
+    }
+
+
+    static getImageAsBase64(req: Request, res: Response) {
+
+        // let imgPath = path.join('..', '..', __dirname, 'uploads', '1.jpg');
+
+        res.send({status: true});
+
+        // fs.readFile(imgPath, (err, data) => {
+        //
+        //     if (err) res.status(500).send(err);
+        //
+        //     //get image file extension name
+        //     let extensionName = path.extname(`${process.cwd()}/pics/demopic.png`);
+        //
+        //     //convert image file to base64-encoded string
+        //     let base64Image = new Buffer(data, 'binary').toString('base64');
+        //
+        //     //combine all strings
+        //     let imgSrcString = `data:image/${extensionName.split('.').pop()};base64,${base64Image}`;
+        //
+        //     res.send({imgBase64: imgSrcString});
+        // });
     }
 }
