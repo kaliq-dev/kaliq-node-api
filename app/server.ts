@@ -2,7 +2,6 @@ import * as express from "express";
 import * as fs from "fs";
 import * as path from "path";
 import * as chokidar from "chokidar";
-
 import {sequelize} from "./database/db.config";
 
 import {ApiRoute} from "./routing/api.routes";
@@ -10,6 +9,7 @@ import {BrandApiRoute} from "./routing/brand-api.routes";
 import {SupplierApiRoute} from "./routing/supplier-api.routes";
 import {CategoryApiRoute} from "./routing/category-api.routes";
 import {ProductApiRoute} from "./routing/product-api.routes";
+import {AuthApiRoute} from "./routing/auth-api.routes";
 
 var bodyParser = require("body-parser");
 
@@ -37,7 +37,7 @@ app.use('/api/brand', BrandApiRoute);
 app.use('/api/supplier', SupplierApiRoute);
 app.use('/api/category', CategoryApiRoute);
 app.use('/api/product', ProductApiRoute);
-
+app.use('/api/auth', AuthApiRoute);
 
 //test base64 imgae read
 app.post('/api/get-base64-images', (req, res) => {
