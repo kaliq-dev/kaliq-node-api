@@ -8,6 +8,29 @@ import {ProductController} from '../controllers/product.controller';
 
 const router: Router = Router();
 
+const PORT = process.env.PORT;
+const redis = require('redis');
+const REDIS_PORT = process.env.REDIS_PORT;
+const client = redis.createClient(REDIS_PORT);
+
+function cache(req, res, next) {
+    client.get("products", (err, result_data) => {
+        if (err) throw err;
+        if (result_data != null) {
+            result_data = JSON.parse(result_data);
+            result_data.map((item) => {
+                console.log(item);
+            })
+
+
+            res.send({data: result_data});
+            // res.send({data: result_data, count: result_data.length, status: true});
+        } else {
+            next();
+        }
+    });
+}
+
 router.get('/', (req: Request, res: Response) => {
     ProductController.readAll(req, res);
 });
@@ -45,7 +68,6 @@ router.post("/filter-by-brand", (req: Request, res: Response) => {
 router.post("/filter-by-supplier", (req: Request, res: Response) => {
     ProductController.filterBySupplier(req, res);
 });
-
 
 
 export const ProductApiRoute: Router = router;

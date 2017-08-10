@@ -10,6 +10,8 @@ import * as _ from 'underscore';
 import * as async from 'async';
 import {GeneralController} from './general.controller';
 
+const redis = require('redis');
+
 export class CategoryController {
     constructor() {
     }
@@ -39,15 +41,6 @@ export class CategoryController {
             console.log("callback");
         }
 
-        // model.Category.findAll({
-        //     attributes: ['id', 'name', 'parent', 'image_list', 'sub_category', 'createdAt', 'updatedAt']
-        // }).then((data) => {
-        //     res.send({data: data});
-        //
-        // }).catch((err) => {
-        //     res.send({status: false});
-        //
-        // });
 
         sequelize.query("SELECT C1.id, C1.name, C1.parent,C1.image_list, C1.sub_category, C1.createdAt, C1.updatedAt, C2.name AS parent_name FROM Categories C1, Categories C2 WHERE C1.parent=C2.id ORDER BY C1.createdAt DESC")
             .spread((results, metadata) => {
@@ -85,6 +78,7 @@ export class CategoryController {
                         res.send({data: result_data, count: result_data.length, status: false});
                     } else {
                         // console.log("All data read");
+                        result_data = GeneralController.getBase64Image(result_data);
                         res.send({data: result_data, count: result_data.length, status: true});
                     }
                 });
@@ -93,7 +87,6 @@ export class CategoryController {
                 if (err) {
                     res.send({data: result_data, count: result_data.length, status: false});
                 } else {
-                    result_data = GeneralController.getBase64Image(result_data);
                     res.send({data: result_data, count: result_data.length, status: true});
                 }
             });
