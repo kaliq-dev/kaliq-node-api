@@ -11,6 +11,9 @@ import * as fs from "fs";
 import * as _ from "underscore";
 import * as async from "async";
 
+import {GeneralController} from './general.controller';
+
+
 export class ProductController {
     constructor() {
     }
@@ -43,6 +46,7 @@ export class ProductController {
                 if (err) {
                     res.send({data: result_data, count: result_data.length, status: false});
                 } else {
+                    result_data = GeneralController.getBase64Image(result_data);
                     res.send({data: result_data, count: result_data.length, status: true});
                 }
             });

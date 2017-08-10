@@ -4,9 +4,15 @@
  */
 const Sequelize = require("sequelize");
 const model = require('../../models');
+import * as fs from "fs";
+import * as path from "path";
 import {Router, Request, Response} from 'express';
+import {GeneralController} from './general.controller';
+
 
 export class BrandController {
+
+
     constructor() {
     }
 
@@ -29,13 +35,16 @@ export class BrandController {
             attributes: ['id', 'name', 'image_list', 'createdAt', 'updatedAt'],
             order: [['createdAt', 'DESC']]
         }).then((brand) => {
-            result_data = brand;
+            //convert images to base64 and send
+            result_data = GeneralController.getBase64Image(brand);
             return res.send({data: result_data, count: result_data.length, status: true});
         }).catch((err) => {
-            return res.send({data: result_data, count: result_data.length, status: false});
+            if (err) {
+                result_data = [];
+                return res.send({data: result_data, count: result_data.length, status: false});
+            }
         });
     }
-
 
     static deleteById(req: Request, res: Response) {
         model.Brand.destroy({
