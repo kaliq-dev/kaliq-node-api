@@ -16,9 +16,9 @@ import {GeneralController} from './general.controller';
 
 //REDIS -----
 // const PORT = process.env.PORT;
-const redis = require('redis');
-const REDIS_PORT = process.env.REDIS_PORT;
-const client = redis.createClient(REDIS_PORT);
+// const redis = require('redis');
+// const REDIS_PORT = process.env.REDIS_PORT;
+// const client = redis.createClient(REDIS_PORT);
 
 
 export class ProductController {
@@ -47,7 +47,7 @@ export class ProductController {
         sequelize.query("SELECT Products.id, Products.name, Products.price, Products.vat, Products.image_list, Suppliers.name AS supplier_name, Brands.name as brand_name, Categories.name AS category_name FROM Products, Suppliers, Brands, Categories WHERE Products.supplier_id = Suppliers.id AND Products.category_id = Categories.id AND Products.brand_id = Brands.id ORDER BY Products.createdAt DESC")
             .spread((results, metadata) => {
                 result_data = GeneralController.getBase64Image(results);
-                client.setex('products',3600,result_data);
+                // client.setex('products',3600,result_data);
                 res.send({data: result_data, count: result_data.length, status: true});
             })
             .catch((err) => {

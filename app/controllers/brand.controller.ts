@@ -9,7 +9,7 @@ import * as path from "path";
 import {Router, Request, Response} from 'express';
 import {GeneralController} from './general.controller';
 
-const redis = require('redis');
+// const redis = require('redis');
 
 export class BrandController {
 

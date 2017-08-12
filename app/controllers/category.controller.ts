@@ -10,7 +10,7 @@ import * as _ from 'underscore';
 import * as async from 'async';
 import {GeneralController} from './general.controller';
 
-const redis = require('redis');
+// const redis = require('redis');
 
 export class CategoryController {
     constructor() {

@@ -11,16 +11,21 @@ import {CategoryApiRoute} from "./routing/category-api.routes";
 import {ProductApiRoute} from "./routing/product-api.routes";
 import {AuthApiRoute} from "./routing/auth-api.routes";
 
-var bodyParser = require("body-parser");
+const bodyParser = require("body-parser");
+const config = require('./config/main');
+const logger = require('morgan');
+const passport = require('passport');
 
 const app: express.Application = express();
-const port: number = process.env.PORT || 5000;
 
+
+// Log requests to API using morgan
+app.use(logger('dev'));
 // Add headers
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization, Access-Control-Allow-Credentials');
     res.setHeader('Access-Control-Allow-Credentials', true);
     next();
 });
@@ -31,6 +36,9 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
+app.use(passport.initialize());
+require('./config/passport')(passport);
+
 // api router endpoint
 app.use('/api', ApiRoute);
 app.use('/api/brand', BrandApiRoute);
@@ -39,6 +47,12 @@ app.use('/api/category', CategoryApiRoute);
 app.use('/api/product', ProductApiRoute);
 app.use('/api/auth', AuthApiRoute);
 
+
+
+//testing JWT token with passport
+app.get('/api/dashboard', passport.authenticate('jwt', { session: false }), function(req, res) {
+    res.send('It worked! User id is: ' + req.user._id + '.');
+});
 //test base64 imgae read
 app.post('/api/get-base64-images', (req, res) => {
 
@@ -80,9 +94,9 @@ function readImageFiles() {
 }
 
 
-app.listen(port, () => {
+app.listen(config.port, () => {
     // readImageFiles();
-    console.log(`Listening at port :${port}`);
+    console.log(`Listening at port :${config.port}`);
     sequelize.authenticate()
         .then(() => {
             console.log('Connection has been established successfully');
