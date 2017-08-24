@@ -46,8 +46,9 @@ export class ProductController {
         let result_data = [];
         sequelize.query("SELECT Products.id, Products.name, Products.price, Products.vat, Products.image_list, Suppliers.name AS supplier_name, Brands.name as brand_name, Categories.name AS category_name FROM Products, Suppliers, Brands, Categories WHERE Products.supplier_id = Suppliers.id AND Products.category_id = Categories.id AND Products.brand_id = Brands.id ORDER BY Products.createdAt DESC")
             .spread((results, metadata) => {
-                result_data = GeneralController.getBase64Image(results);
+                // result_data = GeneralController.getBase64Image(results);
                 // client.setex('products',3600,result_data);
+                result_data = GeneralController.getImageFilePath(results);
                 res.send({data: result_data, count: result_data.length, status: true});
             })
             .catch((err) => {

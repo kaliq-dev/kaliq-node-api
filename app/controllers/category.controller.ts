@@ -78,7 +78,8 @@ export class CategoryController {
                         res.send({data: result_data, count: result_data.length, status: false});
                     } else {
                         // console.log("All data read");
-                        result_data = GeneralController.getBase64Image(result_data);
+                        // result_data = GeneralController.getBase64Image(result_data);
+                        result_data = GeneralController.getImageFilePath(result_data);
                         res.send({data: result_data, count: result_data.length, status: true});
                     }
                 });
