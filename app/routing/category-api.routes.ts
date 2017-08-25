@@ -12,8 +12,13 @@ router.get('/', (req: Request, res: Response) => {
     CategoryController.readAll(req, res);
 });
 
-router.get('/:id', (req: Request, res: Response) => {
+// router.get('/:id', (req: Request, res: Response) => {
+//
+// });
 
+//essential category list
+router.get('/essentials', (req: Request, res: Response) => {
+    CategoryController.getEssentialCategory(req, res);
 });
 
 router.post('/create', (req: Request, res: Response) => {
@@ -31,6 +36,5 @@ router.put('/update/:id', (req: Request, res: Response) => {
 router.delete('/delete/:id', (req: Request, res: Response) => {
     CategoryController.deleteById(req, res);
 });
-
 
 export const CategoryApiRoute: Router = router;

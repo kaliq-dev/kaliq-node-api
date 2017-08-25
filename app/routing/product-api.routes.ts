@@ -35,9 +35,31 @@ router.get('/', (req: Request, res: Response) => {
     ProductController.readAll(req, res);
 });
 
-router.get('/:id', (req: Request, res: Response) => {
 
+router.get("/new-products", (req: Request, res: Response) => {
+    ProductController.getNewProducts(req, res);
 });
+
+router.get("/recommended-products", (req: Request, res: Response) => {
+    ProductController.getRecommendedProducts(req,res);
+});
+
+router.get("/featured-products", (req: Request, res: Response) => {
+    ProductController.getFeaturedProducts(req,res);
+});
+
+router.get("/popular-products", (req: Request, res: Response) => {
+    ProductController.getFeaturedProducts(req,res);
+});
+
+router.get("/new-arrival-products", (req: Request, res: Response) => {
+    ProductController.getNewArrivalProducts(req,res);
+});
+
+
+// router.get('/:id', (req: Request, res: Response) => {
+//
+// });
 
 router.post('/create', (req: Request, res: Response) => {
     ProductController.create(req, res);

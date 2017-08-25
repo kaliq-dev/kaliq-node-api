@@ -20,10 +20,12 @@ import {GeneralController} from './general.controller';
 // const REDIS_PORT = process.env.REDIS_PORT;
 // const client = redis.createClient(REDIS_PORT);
 
+const rowCount = 32;
 
 export class ProductController {
     constructor() {
     }
+
 
     static create(req: Request, res: Response) {
         let data = req.body;
@@ -46,8 +48,6 @@ export class ProductController {
         let result_data = [];
         sequelize.query("SELECT Products.id, Products.name, Products.price, Products.vat, Products.image_list, Suppliers.name AS supplier_name, Brands.name as brand_name, Categories.name AS category_name FROM Products, Suppliers, Brands, Categories WHERE Products.supplier_id = Suppliers.id AND Products.category_id = Categories.id AND Products.brand_id = Brands.id ORDER BY Products.createdAt DESC")
             .spread((results, metadata) => {
-                // result_data = GeneralController.getBase64Image(results);
-                // client.setex('products',3600,result_data);
                 result_data = GeneralController.getImageFilePath(results);
                 res.send({data: result_data, count: result_data.length, status: true});
             })
@@ -122,6 +122,104 @@ export class ProductController {
         }).catch((err) => {
             res.send({data: result, count: result.length, status: false});
         });
+    }
+
+
+    static getNewProducts(req: Request, res: Response) {
+        let result_data = [];
+
+        sequelize.query("SELECT Products.id, Products.name, Products.price, Products.vat, Products.image_list, Suppliers.name AS supplier_name, Brands.name as brand_name, Categories.name AS category_name FROM Products, Suppliers, Brands, Categories WHERE Products.supplier_id = Suppliers.id AND Products.category_id = Categories.id AND Products.brand_id = Brands.id Order By rand() LIMIT 10")
+            .spread((results, metadata) => {
+                result_data = GeneralController.getImageFilePath(results);
+                res.send({data: result_data, count: result_data.length, status: true});
+            }).catch((err) => {
+            if (!err) {
+                res.send({data: result_data, count: result_data.length, status: true});
+            } else {
+                res.send({data: result_data, count: result_data.length, status: false});
+
+            }
+        });
+    }
+
+
+    static getPopularProducts(req: Request, res: Response){
+        let result_data = [];
+
+        sequelize.query("SELECT Products.id, Products.name, Products.price, Products.vat, Products.image_list, Suppliers.name AS supplier_name, Brands.name as brand_name, Categories.name AS category_name FROM Products, Suppliers, Brands, Categories WHERE Products.supplier_id = Suppliers.id AND Products.category_id = Categories.id AND Products.brand_id = Brands.id Order By rand() LIMIT 10")
+            .spread((results, metadata) => {
+                result_data = GeneralController.getImageFilePath(results);
+                res.send({data: result_data, count: result_data.length, status: true});
+            }).catch((err) => {
+            if (!err) {
+                res.send({data: result_data, count: result_data.length, status: true});
+            } else {
+                res.send({data: result_data, count: result_data.length, status: false});
+
+            }
+        });
+    }
+
+    static getFeaturedProducts(req: Request, res: Response){
+        let result_data = [];
+
+        sequelize.query("SELECT Products.id, Products.name, Products.price, Products.vat, Products.image_list, Suppliers.name AS supplier_name, Brands.name as brand_name, Categories.name AS category_name FROM Products, Suppliers, Brands, Categories WHERE Products.supplier_id = Suppliers.id AND Products.category_id = Categories.id AND Products.brand_id = Brands.id Order By rand() LIMIT 10")
+            .spread((results, metadata) => {
+                result_data = GeneralController.getImageFilePath(results);
+                res.send({data: result_data, count: result_data.length, status: true});
+
+            }).catch((err) => {
+            if (!err) {
+                res.send({data: result_data, count: result_data.length, status: true});
+            } else {
+                res.send({data: result_data, count: result_data.length, status: false});
+
+            }
+        });
+    }
+
+    static getRecommendedProducts(req: Request, res: Response){
+        let result_data = [];
+
+        sequelize.query("SELECT Products.id, Products.name, Products.price, Products.vat, Products.image_list, Suppliers.name AS supplier_name, Brands.name as brand_name, Categories.name AS category_name FROM Products, Suppliers, Brands, Categories WHERE Products.supplier_id = Suppliers.id AND Products.category_id = Categories.id AND Products.brand_id = Brands.id Order By rand() LIMIT 10")
+            .spread((results, metadata) => {
+                result_data = GeneralController.getImageFilePath(results);
+                res.send({data: result_data, count: result_data.length, status: true});
+            }).catch((err) => {
+            if (!err) {
+                res.send({data: result_data, count: result_data.length, status: true});
+            } else {
+                res.send({data: result_data, count: result_data.length, status: false});
+
+            }
+        });
+    }
+
+    static getNewArrivalProducts(req: Request, res: Response){
+        let result_data = [];
+
+        sequelize.query("SELECT Products.id, Products.name, Products.price, Products.vat, Products.image_list, Suppliers.name AS supplier_name, Brands.name as brand_name, Categories.name AS category_name FROM Products, Suppliers, Brands, Categories WHERE Products.supplier_id = Suppliers.id AND Products.category_id = Categories.id AND Products.brand_id = Brands.id Order By rand() LIMIT 10")
+            .spread((results, metadata) => {
+                result_data = GeneralController.getImageFilePath(results);
+                res.send({data: result_data, count: result_data.length, status: true});
+            }).catch((err) => {
+            if (!err) {
+                res.send({data: result_data, count: result_data.length, status: true});
+            } else {
+                res.send({data: result_data, count: result_data.length, status: false});
+
+            }
+        });
+    }
+
+
+    static getRandomInt(min, max) {
+        let data = [];
+        for (let i = 0; i <= 10; i++) {
+            let num = Math.floor(Math.random() * (max - min + 1)) + min;
+            data.push(num);
+        }
+        return data;
     }
 
 }

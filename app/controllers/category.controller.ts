@@ -105,4 +105,19 @@ export class CategoryController {
         });
     }
 
+    static getEssentialCategory(req: Request, res: Response) {
+        let result_data = [];
+        sequelize.query("SELECT * FROM Categories WHERE name IN ('CEMENT','STEEL','SAND','BLOCK','READYMIX','LUMBER')")
+            .spread((results, metadata) => {
+                result_data = GeneralController.getImageFilePath(results);
+                res.send({data: result_data, count: result_data.length, status: true});
+            }).catch((err) => {
+            if (err) {
+                res.send({data: result_data, count: result_data.length, status: false});
+            } else {
+                res.send({data: result_data, count: result_data.length, status: true});
+            }
+        })
+    }
+
 }
