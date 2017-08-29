@@ -9,6 +9,23 @@ export class SupplierController {
     constructor() {
     }
 
+
+    static getSupplierById(req: Request, res: Response){
+        model.Supplier.findOne({
+            where: {
+                id: req.params.id
+            }
+        }).then((supplier) => {
+            if (supplier) {
+                res.send({data: supplier, status: true});
+            } else {
+                res.send({data: {}, status: false});
+            }
+        }).catch((err) => {
+            res.send({data: {}, status: false});
+        });
+    }
+
     static create(req: Request, res: Response) {
         let data = req.body;
         model.Supplier.create({

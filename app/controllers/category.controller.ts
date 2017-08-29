@@ -16,6 +16,22 @@ export class CategoryController {
     constructor() {
     }
 
+    static getCategoryById(req: Request, res: Response) {
+        model.Category.findOne({
+            where: {
+                id: req.params.id
+            }
+        }).then((category) => {
+            if (category) {
+                res.send({data: category, status: true});
+            } else {
+                res.send({data: {}, status: false});
+            }
+        }).catch((err) => {
+            res.send({data: {}, status: false});
+        });
+    }
+
     static create(req: Request, res: Response) {
         let data = req.body;
         model.Category.create({

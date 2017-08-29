@@ -57,9 +57,9 @@ router.get("/new-arrival-products", (req: Request, res: Response) => {
 });
 
 
-// router.get('/:id', (req: Request, res: Response) => {
-//
-// });
+router.get('/id/:id', (req: Request, res: Response) => {
+    ProductController.getProductById(req,res);
+});
 
 router.post('/create', (req: Request, res: Response) => {
     ProductController.create(req, res);

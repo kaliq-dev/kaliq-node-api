@@ -30,7 +30,9 @@ module.exports = function (sequelize, DataTypes) {
         name: DataTypes.STRING,
         price: DataTypes.DOUBLE,
         vat: DataTypes.DOUBLE,
-        image_list: DataTypes.JSON
+        image_list: DataTypes.JSON,
+        rating :DataTypes.DECIMAL,
+        in_cart: DataTypes.BOOLEAN
     }, {
         classMethods: {
             associate: function (models) {

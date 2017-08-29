@@ -24,6 +24,24 @@ const rowCount = 32;
 
 export class ProductController {
     constructor() {
+
+    }
+
+
+    static getProductById(req: Request, res: Response) {
+        model.Product.findOne({
+            where: {
+                id: req.params.id
+            }
+        }).then((product) => {
+            if (product) {
+                res.send({data: product, status: true});
+            }else{
+                res.send({data: {}, status: false});
+            }
+        }).catch((err) => {
+            res.send({data: {}, status: false});
+        });
     }
 
 
@@ -46,7 +64,7 @@ export class ProductController {
 
     static readAll(req: Request, res: Response) {
         let result_data = [];
-        sequelize.query("SELECT Products.id, Products.name, Products.price, Products.vat, Products.image_list, Suppliers.name AS supplier_name, Brands.name as brand_name, Categories.name AS category_name FROM Products, Suppliers, Brands, Categories WHERE Products.supplier_id = Suppliers.id AND Products.category_id = Categories.id AND Products.brand_id = Brands.id ORDER BY Products.createdAt DESC")
+        sequelize.query("SELECT Products.id, Products.name, Products.price, Products.vat, Products.image_list, Products.rating,Products.in_cart, Suppliers.name AS supplier_name, Brands.name as brand_name, Categories.name AS category_name FROM Products, Suppliers, Brands, Categories WHERE Products.supplier_id = Suppliers.id AND Products.category_id = Categories.id AND Products.brand_id = Brands.id ORDER BY Products.createdAt DESC")
             .spread((results, metadata) => {
                 result_data = GeneralController.getImageFilePath(results);
                 res.send({data: result_data, count: result_data.length, status: true});
@@ -127,8 +145,7 @@ export class ProductController {
 
     static getNewProducts(req: Request, res: Response) {
         let result_data = [];
-
-        sequelize.query("SELECT Products.id, Products.name, Products.price, Products.vat, Products.image_list, Suppliers.name AS supplier_name, Brands.name as brand_name, Categories.name AS category_name FROM Products, Suppliers, Brands, Categories WHERE Products.supplier_id = Suppliers.id AND Products.category_id = Categories.id AND Products.brand_id = Brands.id Order By rand() LIMIT 10")
+        sequelize.query("SELECT Products.id, Products.name, Products.price, Products.vat, Products.image_list,Products.rating,Products.in_cart, Suppliers.name AS supplier_name, Brands.name as brand_name, Categories.name AS category_name FROM Products, Suppliers, Brands, Categories WHERE Products.supplier_id = Suppliers.id AND Products.category_id = Categories.id AND Products.brand_id = Brands.id Order By rand() LIMIT 10")
             .spread((results, metadata) => {
                 result_data = GeneralController.getImageFilePath(results);
                 res.send({data: result_data, count: result_data.length, status: true});
@@ -143,10 +160,10 @@ export class ProductController {
     }
 
 
-    static getPopularProducts(req: Request, res: Response){
+    static getPopularProducts(req: Request, res: Response) {
         let result_data = [];
 
-        sequelize.query("SELECT Products.id, Products.name, Products.price, Products.vat, Products.image_list, Suppliers.name AS supplier_name, Brands.name as brand_name, Categories.name AS category_name FROM Products, Suppliers, Brands, Categories WHERE Products.supplier_id = Suppliers.id AND Products.category_id = Categories.id AND Products.brand_id = Brands.id Order By rand() LIMIT 10")
+        sequelize.query("SELECT Products.id, Products.name, Products.price, Products.vat, Products.image_list,Products.rating,Products.in_cart, Suppliers.name AS supplier_name, Brands.name as brand_name, Categories.name AS category_name FROM Products, Suppliers, Brands, Categories WHERE Products.supplier_id = Suppliers.id AND Products.category_id = Categories.id AND Products.brand_id = Brands.id Order By rand() LIMIT 10")
             .spread((results, metadata) => {
                 result_data = GeneralController.getImageFilePath(results);
                 res.send({data: result_data, count: result_data.length, status: true});
@@ -160,14 +177,29 @@ export class ProductController {
         });
     }
 
-    static getFeaturedProducts(req: Request, res: Response){
+    static getFeaturedProducts(req: Request, res: Response) {
         let result_data = [];
-
-        sequelize.query("SELECT Products.id, Products.name, Products.price, Products.vat, Products.image_list, Suppliers.name AS supplier_name, Brands.name as brand_name, Categories.name AS category_name FROM Products, Suppliers, Brands, Categories WHERE Products.supplier_id = Suppliers.id AND Products.category_id = Categories.id AND Products.brand_id = Brands.id Order By rand() LIMIT 10")
+        sequelize.query("SELECT Products.id, Products.name, Products.price, Products.vat, Products.image_list,Products.rating,Products.in_cart, Suppliers.name AS supplier_name, Brands.name as brand_name, Categories.name AS category_name FROM Products, Suppliers, Brands, Categories WHERE Products.supplier_id = Suppliers.id AND Products.category_id = Categories.id AND Products.brand_id = Brands.id Order By rand() LIMIT 10")
             .spread((results, metadata) => {
                 result_data = GeneralController.getImageFilePath(results);
                 res.send({data: result_data, count: result_data.length, status: true});
 
+            }).catch((err) => {
+            if (!err) {
+                res.send({data: result_data, count: result_data.length, status: true});
+            } else {
+                res.send({data: result_data, count: result_data.length, status: false});
+            }
+        });
+    }
+
+    static getRecommendedProducts(req: Request, res: Response) {
+        let result_data = [];
+
+        sequelize.query("SELECT Products.id, Products.name, Products.price, Products.vat, Products.image_list, Products.rating,Products.in_cart, Suppliers.name AS supplier_name, Brands.name as brand_name, Categories.name AS category_name FROM Products, Suppliers, Brands, Categories WHERE Products.supplier_id = Suppliers.id AND Products.category_id = Categories.id AND Products.brand_id = Brands.id Order By rand() LIMIT 10")
+            .spread((results, metadata) => {
+                result_data = GeneralController.getImageFilePath(results);
+                res.send({data: result_data, count: result_data.length, status: true});
             }).catch((err) => {
             if (!err) {
                 res.send({data: result_data, count: result_data.length, status: true});
@@ -178,27 +210,10 @@ export class ProductController {
         });
     }
 
-    static getRecommendedProducts(req: Request, res: Response){
+    static getNewArrivalProducts(req: Request, res: Response) {
         let result_data = [];
 
-        sequelize.query("SELECT Products.id, Products.name, Products.price, Products.vat, Products.image_list, Suppliers.name AS supplier_name, Brands.name as brand_name, Categories.name AS category_name FROM Products, Suppliers, Brands, Categories WHERE Products.supplier_id = Suppliers.id AND Products.category_id = Categories.id AND Products.brand_id = Brands.id Order By rand() LIMIT 10")
-            .spread((results, metadata) => {
-                result_data = GeneralController.getImageFilePath(results);
-                res.send({data: result_data, count: result_data.length, status: true});
-            }).catch((err) => {
-            if (!err) {
-                res.send({data: result_data, count: result_data.length, status: true});
-            } else {
-                res.send({data: result_data, count: result_data.length, status: false});
-
-            }
-        });
-    }
-
-    static getNewArrivalProducts(req: Request, res: Response){
-        let result_data = [];
-
-        sequelize.query("SELECT Products.id, Products.name, Products.price, Products.vat, Products.image_list, Suppliers.name AS supplier_name, Brands.name as brand_name, Categories.name AS category_name FROM Products, Suppliers, Brands, Categories WHERE Products.supplier_id = Suppliers.id AND Products.category_id = Categories.id AND Products.brand_id = Brands.id Order By rand() LIMIT 10")
+        sequelize.query("SELECT Products.id, Products.name, Products.price, Products.vat, Products.image_list, Products.rating,Products.in_cart, Suppliers.name AS supplier_name, Brands.name as brand_name, Categories.name AS category_name FROM Products, Suppliers, Brands, Categories WHERE Products.supplier_id = Suppliers.id AND Products.category_id = Categories.id AND Products.brand_id = Brands.id Order By rand() LIMIT 10")
             .spread((results, metadata) => {
                 result_data = GeneralController.getImageFilePath(results);
                 res.send({data: result_data, count: result_data.length, status: true});

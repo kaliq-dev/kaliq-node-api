@@ -12,9 +12,9 @@ router.get('/', (req: Request, res: Response) => {
     CategoryController.readAll(req, res);
 });
 
-// router.get('/:id', (req: Request, res: Response) => {
-//
-// });
+router.get('/id/:id', (req: Request, res: Response) => {
+    CategoryController.getCategoryById(req, res);
+});
 
 //essential category list
 router.get('/essentials', (req: Request, res: Response) => {

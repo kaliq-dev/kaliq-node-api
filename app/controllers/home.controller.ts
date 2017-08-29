@@ -1,6 +1,6 @@
 /*
  * Controller to handle request to /home
- */
+*/
 
 import {Router, Request, Response} from 'express';
 

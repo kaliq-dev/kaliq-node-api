@@ -10,6 +10,7 @@ import {SupplierApiRoute} from "./routing/supplier-api.routes";
 import {CategoryApiRoute} from "./routing/category-api.routes";
 import {ProductApiRoute} from "./routing/product-api.routes";
 import {AuthApiRoute} from "./routing/auth-api.routes";
+import {ShoppingCartApiRoute} from "./routing/shopping-cart-api.routes";
 
 const bodyParser = require("body-parser");
 const config = require('./config/main');
@@ -48,6 +49,10 @@ app.use('/api/supplier', SupplierApiRoute);
 app.use('/api/category', CategoryApiRoute);
 app.use('/api/product', ProductApiRoute);
 app.use('/api/auth', AuthApiRoute);
+app.use('/api/cart', ShoppingCartApiRoute);
+/*
+app.use('/api/cart',CartApiRoute);
+*/
 
 //testing JWT token with passport
 app.get('/api/dashboard', passport.authenticate('jwt', { session: false }), function(req, res) {
