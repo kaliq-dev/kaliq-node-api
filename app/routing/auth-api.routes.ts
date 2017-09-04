@@ -21,7 +21,9 @@ router.post('/login', requireLogin, (req: Request, res: Response) => {
 // Authenticate the user and get a JSON Web Token to include in the header of future requests.
 router.post('/authenticate', (req: Request, res: Response) => {
     AuthController.authenticate(req,res);
-})
+});
+
+
 
 
 export const AuthApiRoute: Router = router;

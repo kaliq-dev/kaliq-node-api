@@ -49,6 +49,6 @@ module.exports = {
       Example:
       return queryInterface.dropTable('users');
     */
-      return queryInterface.dropTable('CartItem');
+          return queryInterface.dropTable('CartItem');
   }
 };

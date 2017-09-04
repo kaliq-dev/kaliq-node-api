@@ -35,7 +35,7 @@ export class ShoppingCartController {
                     model.CartItem.create({
                         shoppingCartId: shoppingCartId,
                         productId: data['productId'],
-                        quantity: 1
+                        quantity: data['quantity']
                     }).then((item) => {
                         res.send({data: item, status: true});
                     }).catch((err) => {
