@@ -8,11 +8,67 @@ const model = require("../../models");
 import {Router, Request, Response} from 'express';
 import {GeneralController} from './general.controller';
 
-const rowCount = 32;
 
+const rowCount = 32;
 export class ProductController {
 
     constructor() {
+    }
+
+    //set rating for a product
+    static setRating(req: Request, res: Response) {
+        let data = req.body;
+        model.ProductUserRating.find({
+            where: {
+                $and: [
+                    {
+                        productId: data['productId']
+                    },
+                    {
+                        userId: data['userId']
+                    }
+                ]
+            }
+        }).then((result) => {
+            if (!result) {
+                model.ProductUserRating.create({
+                    productId: data['productId'],
+                    userId: data['userId'],
+                    rating: data['rating']
+                }).then((item) => {
+                    res.send({data: item, status: true});
+                }).catch((err) => {
+                    if (err) {
+                        res.send({data: {}, status: false});
+                    }
+                })
+            } else {
+                //update product quantity
+                model.ProductUserRating.update({
+                    rating: data['rating']
+                }, {
+                    where: {
+                        id: result["id"]
+                    }
+                }).then((item) => {
+                    if (item) {
+                        res.send({status: true});
+                    } else {
+                        res.send({status: false});
+                    }
+                }).catch((err) => {
+                    if (err) {
+                        res.send({status: false});
+                    }
+                })
+            }
+        }).catch((err) => {
+            if (err) {
+                res.send({status: false})
+            } else {
+                res.send({status: true})
+            }
+        });
     }
 
     //favourite product
@@ -65,7 +121,6 @@ export class ProductController {
             res.send({data: {}, status: false});
         });
     }
-
 
     static create(req: Request, res: Response) {
         let data = req.body;
@@ -176,7 +231,6 @@ export class ProductController {
                 res.send({data: result_data, count: result_data.length, status: true});
             } else {
                 res.send({data: result_data, count: result_data.length, status: false});
-
             }
         });
     }
@@ -204,7 +258,6 @@ export class ProductController {
             .spread((results, metadata) => {
                 result_data = GeneralController.getImageFilePath(results);
                 res.send({data: result_data, count: result_data.length, status: true});
-
             }).catch((err) => {
             if (!err) {
                 res.send({data: result_data, count: result_data.length, status: true});

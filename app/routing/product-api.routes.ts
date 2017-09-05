@@ -111,7 +111,12 @@ router.get("/product-details/:productId", (req: Request, res: Response) => {
 
 //search product api
 router.get("/search/:key/:paginationCount", (req: Request, res: Response) => {
-    ProductController.searchProduct(req,res);
+    ProductController.searchProduct(req, res);
+});
+
+//set rating of a product by a user
+router.post("/set-rating", (req: Request, res: Response) => {
+    ProductController.setRating(req,res);
 });
 
 export const ProductApiRoute: Router = router;

@@ -3,7 +3,6 @@ const Supplier = require('./supplier');
 const Brand = require('./brand');
 const Category = require('./category');
 
-
 module.exports = function (sequelize, DataTypes) {
     var Product = sequelize.define('Product', {
         supplier_id: {
