@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f27db41f-6b3a-4bbc-aa01-56e58c59c5f2" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/controllers/cart.controller.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/routing/cart-api.routes.ts" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/auth.controller.ts" afterPath="$PROJECT_DIR$/app/controllers/auth.controller.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/shopping-cart.controller.ts" afterPath="$PROJECT_DIR$/app/controllers/shopping-cart.controller.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routing/auth-api.routes.ts" afterPath="$PROJECT_DIR$/app/routing/auth-api.routes.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/product.controller.ts" afterPath="$PROJECT_DIR$/app/controllers/product.controller.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routing/product-api.routes.ts" afterPath="$PROJECT_DIR$/app/routing/product-api.routes.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,78 +18,28 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.17791077">
+    <splitter split-orientation="horizontal" split-proportion="0.1">
       <split-first>
         <leaf>
-          <file leaf-file-name="category-api.routes.ts" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/routing/category-api.routes.ts">
+          <file leaf-file-name="product.controller.ts" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/controllers/product.controller.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="192">
-                  <caret line="11" column="11" lean-forward="false" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+                <state relative-caret-position="366">
+                  <caret line="306" column="20" lean-forward="false" selection-start-line="306" selection-start-column="20" selection-end-line="306" selection-end-column="20" />
                   <folding>
-                    <element signature="e#117#167#0" expanded="true" />
+                    <element signature="e#197#247#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="shopping-cart-api.routes.ts" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/routing/shopping-cart-api.routes.ts">
+          <file leaf-file-name="product-api.routes.ts" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/routing/product-api.routes.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="264">
-                  <caret line="11" column="30" lean-forward="false" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="api.routes.ts" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/routing/api.routes.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="312">
-                  <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="server.ts" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/server.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="240">
-                  <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="auth.controller.ts" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/controllers/auth.controller.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="168">
-                  <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="shopping-cart.controller.ts" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/controllers/shopping-cart.controller.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="511">
-                  <caret line="153" column="1" lean-forward="true" selection-start-line="153" selection-start-column="1" selection-end-line="153" selection-end-column="1" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="brand-api.routes.ts" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/routing/brand-api.routes.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="144">
-                  <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+                <state relative-caret-position="216">
+                  <caret line="33" column="34" lean-forward="false" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="34" />
                   <folding>
-                    <element signature="e#112#162#0" expanded="true" />
+                    <element signature="e#116#166#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -102,12 +49,14 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="shopping-cart.controller.ts" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/controllers/shopping-cart.controller.ts">
+          <file leaf-file-name="product.controller.ts" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/controllers/product.controller.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="637">
-                  <caret line="142" column="24" lean-forward="false" selection-start-line="142" selection-start-column="24" selection-end-line="142" selection-end-column="24" />
-                  <folding />
+                <state relative-caret-position="229">
+                  <caret line="90" column="44" lean-forward="false" selection-start-line="90" selection-start-column="44" selection-end-line="90" selection-end-column="44" />
+                  <folding>
+                    <element signature="e#197#247#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -121,6 +70,7 @@
       <find>Genera</find>
       <find>General</find>
       <find>path</find>
+      <find>pagina</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -160,13 +110,13 @@
         <option value="$PROJECT_DIR$/migrations/20170903140052-create-favourite-table.js" />
         <option value="$PROJECT_DIR$/models/favourite.js" />
         <option value="$PROJECT_DIR$/app/controllers/category.controller.ts" />
-        <option value="$PROJECT_DIR$/app/routing/product-api.routes.ts" />
-        <option value="$PROJECT_DIR$/app/controllers/product.controller.ts" />
         <option value="$PROJECT_DIR$/app/routing/auth-api.routes.ts" />
         <option value="$PROJECT_DIR$/app/controllers/auth.controller.ts" />
         <option value="$PROJECT_DIR$/app/controllers/cart.controller.ts" />
         <option value="$PROJECT_DIR$/app/routing/shopping-cart-api.routes.ts" />
         <option value="$PROJECT_DIR$/app/controllers/shopping-cart.controller.ts" />
+        <option value="$PROJECT_DIR$/app/routing/product-api.routes.ts" />
+        <option value="$PROJECT_DIR$/app/controllers/product.controller.ts" />
       </list>
     </option>
   </component>
@@ -188,10 +138,10 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="648" />
-    <option name="y" value="24" />
-    <option name="width" value="1838" />
-    <option name="height" value="1056" />
+    <option name="x" value="814" />
+    <option name="y" value="159" />
+    <option name="width" value="1915" />
+    <option name="height" value="912" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -433,15 +383,15 @@
       <workItem from="1503847024082" duration="12242000" />
       <workItem from="1504001180524" duration="20250000" />
       <workItem from="1504268322544" duration="477000" />
-      <workItem from="1504447054772" duration="32397000" />
+      <workItem from="1504447054772" duration="34561000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="132476000" />
+    <option name="totallyTimeSpent" value="134640000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="648" y="24" width="1838" height="1056" extended-state="4" />
+    <frame x="814" y="159" width="1915" height="912" extended-state="0" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -452,7 +402,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27549946" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2354399" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -777,16 +727,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/routing/product-api.routes.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <element signature="e#116#166#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/routing/supplier-api.routes.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -808,26 +748,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/product.controller.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="184" column="11" lean-forward="true" selection-start-line="184" selection-start-column="11" selection-end-line="184" selection-end-column="11" />
-          <folding>
-            <element signature="e#197#247#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routing/category-api.routes.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="11" column="11" lean-forward="false" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
-          <folding>
-            <element signature="e#117#167#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/routing/cart-api.routes.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -844,28 +764,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/routing/brand-api.routes.ts">
+    <entry file="file://$PROJECT_DIR$/app/controllers/shopping-cart.controller.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="e#112#162#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routing/api.routes.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state relative-caret-position="103">
+          <caret line="136" column="0" lean-forward="true" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/auth.controller.ts">
+    <entry file="file://$PROJECT_DIR$/app/routing/category-api.routes.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+        <state relative-caret-position="192">
+          <caret line="11" column="11" lean-forward="false" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+          <folding>
+            <element signature="e#117#167#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routing/shopping-cart-api.routes.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="11" column="30" lean-forward="false" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -878,19 +798,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/routing/shopping-cart-api.routes.ts">
+    <entry file="file://$PROJECT_DIR$/app/routing/api.routes.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="11" column="30" lean-forward="false" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+        <state relative-caret-position="312">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/shopping-cart.controller.ts">
+    <entry file="file://$PROJECT_DIR$/app/routing/brand-api.routes.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="637">
-          <caret line="142" column="24" lean-forward="false" selection-start-line="142" selection-start-column="24" selection-end-line="142" selection-end-column="24" />
-          <folding />
+        <state relative-caret-position="144">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding>
+            <element signature="e#112#162#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/auth.controller.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="86" column="26" lean-forward="true" selection-start-line="86" selection-start-column="26" selection-end-line="86" selection-end-column="26" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routing/product-api.routes.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="33" column="34" lean-forward="false" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="34" />
+          <folding>
+            <element signature="e#116#166#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/product.controller.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="90" column="44" lean-forward="false" selection-start-line="90" selection-start-column="44" selection-end-line="90" selection-end-column="44" />
+          <folding>
+            <element signature="e#197#247#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

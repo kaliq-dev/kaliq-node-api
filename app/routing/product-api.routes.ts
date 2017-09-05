@@ -31,7 +31,7 @@ const router: Router = Router();
 //     });
 // }
 
-router.get('/', (req: Request, res: Response) => {
+router.get('/page/:paginationCount', (req: Request, res: Response) => {
     ProductController.readAll(req, res);
 });
 

@@ -15,8 +15,6 @@ export class ProductController {
     constructor() {
     }
 
-
-
     //favourite product
     static setFavourite(req: Request, res: Response) {
         let data = req.body;
@@ -49,8 +47,6 @@ export class ProductController {
                 res.send({data: result_data, count: result_data.length, status: false});
             }
         });
-
-
     }
 
 
@@ -90,7 +86,8 @@ export class ProductController {
 
     static readAll(req: Request, res: Response) {
         let result_data = [];
-        sequelize.query("SELECT Products.id, Products.name, Products.price, Products.vat, Products.image_list, Products.rating,Products.in_cart, Suppliers.name AS supplier_name, Brands.name as brand_name, Categories.name AS category_name FROM Products, Suppliers, Brands, Categories WHERE Products.supplier_id = Suppliers.id AND Products.category_id = Categories.id AND Products.brand_id = Brands.id ORDER BY Products.createdAt DESC")
+        let skipCount = (req.params.paginationCount - 1) * 10;
+        sequelize.query("SELECT Products.id, Products.name, Products.price, Products.vat, Products.image_list, Products.rating,Products.in_cart, Suppliers.name AS supplier_name, Brands.name as brand_name, Categories.name AS category_name FROM Products, Suppliers, Brands, Categories WHERE Products.supplier_id = Suppliers.id AND Products.category_id = Categories.id AND Products.brand_id = Brands.id LIMIT 10 OFFSET " + skipCount)
             .spread((results, metadata) => {
                 result_data = GeneralController.getImageFilePath(results);
                 res.send({data: result_data, count: result_data.length, status: true});
@@ -167,7 +164,6 @@ export class ProductController {
             res.send({data: result, count: result.length, status: false});
         });
     }
-
 
     static getNewProducts(req: Request, res: Response) {
         let result_data = [];
@@ -260,7 +256,6 @@ export class ProductController {
         return data;
     }
 
-
     //get product by category
     static getProductByCategory(req: Request, res: Response) {
         let result_data = [];
@@ -297,7 +292,6 @@ export class ProductController {
             }
         })
     }
-
 
     //search product by keyword
     static searchProduct(req: Request, res: Response) {
