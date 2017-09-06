@@ -20,7 +20,12 @@ router.post('/login', requireLogin, (req: Request, res: Response) => {
 
 // Authenticate the user and get a JSON Web Token to include in the header of future requests.
 router.post('/authenticate', (req: Request, res: Response) => {
-    AuthController.authenticate(req,res);
+    AuthController.authenticate(req, res);
+});
+
+//update password
+router.post('/update-password', (req: Request, res: Response) => {
+    AuthController.updatePassword(req, res);
 })
 
 

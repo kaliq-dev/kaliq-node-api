@@ -17,6 +17,28 @@ export class AuthController {
 
     }
 
+    static updatePassword(req: Request, res: Response) {
+        let salt = bcrypt.genSaltSync(10);
+        let hashPassword = bcrypt.hashSync(req.body.newPassword, salt);
+        model.User.update({
+            password: hashPassword
+        }, {
+            where: {
+                id: req.body.userId
+            }
+        }).then((data) => {
+            if (data) {
+                res.send({status: true});
+            } else {
+                res.send({status: false});
+            }
+        }).catch((err) => {
+            if (err) {
+                res.send({status: false});
+            }
+        })
+    }
+
     static setUserInfo(request) {
         return {
             id: request.id,
@@ -108,6 +130,4 @@ export class AuthController {
             }
         })
     }
-
-
 }

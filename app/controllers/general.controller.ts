@@ -1,21 +1,22 @@
 const Sequelize = require("sequelize");
 const model = require('../../models');
+const config = require('../config/main');
 import * as fs from "fs";
 import * as path from "path";
 import {Router, Request, Response} from 'express';
 
+export class GeneralController {
 
-export class GeneralController{
+    constructor() {
+    }
 
-    constructor(){}
-
-    static getBase64Image(data:any){
+    static getBase64Image(data: any) {
         let pattern = " ",
             re = new RegExp(pattern, "g");
         data.map((item, index) => {
             item.image_list = item.image_list.map((item) => {
                 let newFilename = item.replace(re, '_');
-                let imgPath = path.join(__dirname,'..' , '..', '..', 'uploads', newFilename);
+                let imgPath = path.join(__dirname, '..', '..', '..', 'uploads', newFilename);
                 let ext = path.extname(imgPath);
                 let data = fs.readFileSync(imgPath);
                 let base64Image = new Buffer(data, 'binary').toString('base64');
@@ -27,4 +28,17 @@ export class GeneralController{
         return data;
     }
 
+    //send absolute path of the image
+    static getImageFilePath(data: any) {
+        let pattern = " ",
+            re = new RegExp(pattern, "g");
+        data.map((item, index) => {
+            item.image_list = item.image_list.map((item) => {
+                let newFilename = item.replace(re, '_');
+                return config.server_prod + newFilename;
+            });
+            return item;
+        });
+        return data;
+    }
 }

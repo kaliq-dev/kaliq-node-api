@@ -31,12 +31,34 @@ const router: Router = Router();
 //     });
 // }
 
-router.get('/', (req: Request, res: Response) => {
+router.get('/page/:paginationCount', (req: Request, res: Response) => {
     ProductController.readAll(req, res);
 });
 
-router.get('/:id', (req: Request, res: Response) => {
 
+router.get("/new-products", (req: Request, res: Response) => {
+    ProductController.getNewProducts(req, res);
+});
+
+router.get("/recommended-products", (req: Request, res: Response) => {
+    ProductController.getRecommendedProducts(req, res);
+});
+
+router.get("/featured-products", (req: Request, res: Response) => {
+    ProductController.getFeaturedProducts(req, res);
+});
+
+router.get("/popular-products", (req: Request, res: Response) => {
+    ProductController.getFeaturedProducts(req, res);
+});
+
+router.get("/new-arrival-products", (req: Request, res: Response) => {
+    ProductController.getNewArrivalProducts(req, res);
+});
+
+
+router.get('/id/:id', (req: Request, res: Response) => {
+    ProductController.getProductById(req, res);
 });
 
 router.post('/create', (req: Request, res: Response) => {
@@ -55,7 +77,6 @@ router.delete('/delete/:id', (req: Request, res: Response) => {
     ProductController.deleteById(req, res);
 });
 
-
 //filter api endpoints
 router.post("/filter-by-category", (req: Request, res: Response) => {
     ProductController.filterByCategory(req, res);
@@ -69,5 +90,33 @@ router.post("/filter-by-supplier", (req: Request, res: Response) => {
     ProductController.filterBySupplier(req, res);
 });
 
+//favourite product API endpoint
+router.post("/set-favourite", (req: Request, res: Response) => {
+    ProductController.setFavourite(req, res);
+});
+
+router.get("/get-favourite/userId/:userId", (req: Request, res: Response) => {
+    ProductController.getFavouriteList(req, res);
+});
+
+//get product by category
+router.get("/get-product-by-category/:categoryId", (req: Request, res: Response) => {
+    ProductController.getProductByCategory(req, res);
+});
+
+//get product details
+router.get("/product-details/:productId", (req: Request, res: Response) => {
+    ProductController.getProductDetails(req, res);
+});
+
+//search product api
+router.get("/search/:key/:paginationCount", (req: Request, res: Response) => {
+    ProductController.searchProduct(req, res);
+});
+
+//set rating of a product by a user
+router.post("/set-rating", (req: Request, res: Response) => {
+    ProductController.setRating(req,res);
+});
 
 export const ProductApiRoute: Router = router;

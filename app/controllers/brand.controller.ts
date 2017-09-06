@@ -9,12 +9,25 @@ import * as path from "path";
 import {Router, Request, Response} from 'express';
 import {GeneralController} from './general.controller';
 
-// const redis = require('redis');
-
 export class BrandController {
 
-
     constructor() {
+    }
+
+    static getBrandById(req: Request, res: Response) {
+        model.Brand.findOne({
+            where: {
+                id: req.params.id
+            }
+        }).then((brand) => {
+            if (brand) {
+                res.send({data: brand, status: true});
+            } else {
+                res.send({data: {}, status: false});
+            }
+        }).catch((err) => {
+            res.send({data: {}, status: false});
+        });
     }
 
     static create(req: Request, res: Response) {
@@ -36,7 +49,8 @@ export class BrandController {
             attributes: ['id', 'name', 'image_list', 'createdAt', 'updatedAt'],
             order: [['createdAt', 'DESC']]
         }).then((brand) => {
-            result_data = GeneralController.getBase64Image(brand);
+            result_data = GeneralController.getImageFilePath(brand);
+            // result_data = GeneralController.getBase64Image(brand);
             return res.send({data: result_data, count: result_data.length, status: true});
         }).catch((err) => {
             if (err) {

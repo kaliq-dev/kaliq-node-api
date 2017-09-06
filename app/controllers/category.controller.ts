@@ -16,6 +16,22 @@ export class CategoryController {
     constructor() {
     }
 
+    static getCategoryById(req: Request, res: Response) {
+        model.Category.findOne({
+            where: {
+                id: req.params.id
+            }
+        }).then((category) => {
+            if (category) {
+                res.send({data: category, status: true});
+            } else {
+                res.send({data: {}, status: false});
+            }
+        }).catch((err) => {
+            res.send({data: {}, status: false});
+        });
+    }
+
     static create(req: Request, res: Response) {
         let data = req.body;
         model.Category.create({
@@ -40,7 +56,6 @@ export class CategoryController {
         function newcallback() {
             console.log("callback");
         }
-
 
         sequelize.query("SELECT C1.id, C1.name, C1.parent,C1.image_list, C1.sub_category, C1.createdAt, C1.updatedAt, C2.name AS parent_name FROM Categories C1, Categories C2 WHERE C1.parent=C2.id ORDER BY C1.createdAt DESC")
             .spread((results, metadata) => {
@@ -78,7 +93,8 @@ export class CategoryController {
                         res.send({data: result_data, count: result_data.length, status: false});
                     } else {
                         // console.log("All data read");
-                        result_data = GeneralController.getBase64Image(result_data);
+                        // result_data = GeneralController.getBase64Image(result_data);
+                        result_data = GeneralController.getImageFilePath(result_data);
                         res.send({data: result_data, count: result_data.length, status: true});
                     }
                 });
@@ -102,6 +118,21 @@ export class CategoryController {
         }).catch((err) => {
             res.send({status: false});
         });
+    }
+
+    static getEssentialCategory(req: Request, res: Response) {
+        let result_data = [];
+        sequelize.query("SELECT * FROM Categories WHERE name IN ('CEMENT','STEEL','SAND','BLOCK','READYMIX','LUMBER')")
+            .spread((results, metadata) => {
+                result_data = GeneralController.getImageFilePath(results);
+                res.send({data: result_data, count: result_data.length, status: true});
+            }).catch((err) => {
+            if (err) {
+                res.send({data: result_data, count: result_data.length, status: false});
+            } else {
+                res.send({data: result_data, count: result_data.length, status: true});
+            }
+        })
     }
 
 }

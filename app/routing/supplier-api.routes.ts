@@ -12,8 +12,8 @@ router.get('/', (req: Request, res: Response) => {
     SupplierController.readAll(req, res);
 });
 
-router.get('/:id', (req: Request, res: Response) => {
-
+router.get('/id/:id', (req: Request, res: Response) => {
+    SupplierController.getSupplierById(req, res);
 });
 
 router.post('/create', (req: Request, res: Response) => {

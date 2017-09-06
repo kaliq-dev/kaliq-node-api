@@ -3,7 +3,6 @@ const Supplier = require('./supplier');
 const Brand = require('./brand');
 const Category = require('./category');
 
-
 module.exports = function (sequelize, DataTypes) {
     var Product = sequelize.define('Product', {
         supplier_id: {
@@ -30,7 +29,9 @@ module.exports = function (sequelize, DataTypes) {
         name: DataTypes.STRING,
         price: DataTypes.DOUBLE,
         vat: DataTypes.DOUBLE,
-        image_list: DataTypes.JSON
+        image_list: DataTypes.JSON,
+        rating :DataTypes.DECIMAL,
+        in_cart: DataTypes.BOOLEAN
     }, {
         classMethods: {
             associate: function (models) {
