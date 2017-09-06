@@ -74,20 +74,67 @@ export class ProductController {
     //favourite product
     static setFavourite(req: Request, res: Response) {
         let data = req.body;
-        model.Favourite.create({
-            userId: data['userId'],
-            productId: data['productId']
-        }).then((data) => {
-            if (data) {
-                res.send({data: data, status: true});
-            } else {
-                res.send({data: {}, status: false});
+        model.Favourite.findOne({
+            where: {
+                $and:[
+                    {
+                        productId: data['productId']
+                    },
+                    {
+                        userId: data['userId']
+                    }
+                ]
             }
-        }).catch((err) => {
-            if (err) {
-                res.send({data: {}, status: false});
+            }).then((result)=>{
+                if(result){
+                    model.Favourite.destroy({
+                        where: {
+                            $and: [
+                                {
+                                    productId: data['productId']
+                                },
+                                {
+                                    userId: data['userId']
+                                }
+                            ]
+                        }
+                    }).then((data)=>{
+                        res.send({data:data,status:true});
+                    }).catch((err)=>{
+                        if(err){
+                            res.send({data:[],status:false});
+                        }
+                    })
+                }else{
+                    model.Favourite.create({
+                        userId: data['productId'],
+                        productId: data['userId']
+                    }).then((data)=>{
+                        res.send({data:data,status:true});
+                    }).catch((err)=>{
+                        if(err){
+                            res.send({data:[],status:false});
+                        }
+                    })
+                }
+            }).catch((err)=>{
+            if(err){
+                res.send({status:false});
+            }else{
+                res.send({status:false})
             }
-        })
+        });
+
+
+        // sequelize.query(`INSERT INTO Favourites (userId, productId) VALUES (${data['userId']}, ${data['productId']})`)
+        //     .spread((results,metadata)=>{
+        //         res.send({data:results,status: true});
+        //     }).catch((err)=>{
+        //     if(err){
+        //         res.send({data:{},status:false});
+        //     }
+        // });
+
     }
 
     static getFavouriteList(req: Request, res: Response) {

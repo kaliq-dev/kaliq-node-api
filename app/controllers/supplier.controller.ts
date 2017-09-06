@@ -6,9 +6,9 @@ const Sequelize = require("sequelize");
 const model = require('../../models');
 import {Router, Request, Response} from 'express';
 export class SupplierController {
+
     constructor() {
     }
-
 
     static getSupplierById(req: Request, res: Response){
         model.Supplier.findOne({

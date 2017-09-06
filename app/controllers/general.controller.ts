@@ -7,8 +7,7 @@ import {Router, Request, Response} from 'express';
 
 export class GeneralController {
 
-    constructor() {
-    }
+    constructor() {}
 
     static getBase64Image(data: any) {
         let pattern = " ",
