@@ -56,7 +56,6 @@ router.get("/new-arrival-products", (req: Request, res: Response) => {
     ProductController.getNewArrivalProducts(req, res);
 });
 
-
 router.get('/id/:id', (req: Request, res: Response) => {
     ProductController.getProductById(req, res);
 });
@@ -95,7 +94,7 @@ router.post("/set-favourite", (req: Request, res: Response) => {
     ProductController.setFavourite(req, res);
 });
 
-router.get("/get-favourite/userId/:userId", (req: Request, res: Response) => {
+router.get("/get-favourite/userId/:userId/page/:paginationCount", (req: Request, res: Response) => {
     ProductController.getFavouriteList(req, res);
 });
 

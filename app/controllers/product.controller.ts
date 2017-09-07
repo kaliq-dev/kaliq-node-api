@@ -7,7 +7,7 @@ const Sequelize = require("sequelize");
 const model = require("../../models");
 import {Router, Request, Response} from 'express';
 import {GeneralController} from './general.controller';
-
+import * as _ from 'underscore';
 
 const rowCount = 32;
 export class ProductController {
@@ -139,8 +139,10 @@ export class ProductController {
 
     static getFavouriteList(req: Request, res: Response) {
         let result_data = [];
-        sequelize.query(`SELECT Favourites.id,Favourites.userId,Favourites.productId,Products.name,Products.price,Products.image_list,Products.rating,Products.in_cart FROM Favourites, Products WHERE Favourites.productId = Products.id AND Favourites.userId=${req.params.userId}`)
+        let skipCount = (req.params.paginationCount - 1) * 10;
+        sequelize.query(`SELECT * FROM Favourites, Products, ProductUserRatings WHERE (Favourites.productId = Products.id AND ProductUserRatings.productId = Products.id AND ProductUserRatings.userId=${req.params.userId} AND Favourites.userId=${req.params.userId})`)
             .spread((results, metadata) => {
+            console.log(results);
                 result_data = GeneralController.getImageFilePath(results);
                 res.send({data: result_data, status: true});
             }).catch((err) => {
