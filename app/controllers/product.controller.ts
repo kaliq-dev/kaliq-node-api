@@ -125,7 +125,6 @@ export class ProductController {
             }
         });
 
-
         // sequelize.query(`INSERT INTO Favourites (userId, productId) VALUES (${data['userId']}, ${data['productId']})`)
         //     .spread((results,metadata)=>{
         //         res.send({data:results,status: true});
@@ -140,10 +139,10 @@ export class ProductController {
     static getFavouriteList(req: Request, res: Response) {
         let result_data = [];
         let skipCount = (req.params.paginationCount - 1) * 10;
-        sequelize.query(`SELECT * FROM Favourites, Products, ProductUserRatings WHERE (Favourites.productId = Products.id AND ProductUserRatings.productId = Products.id AND ProductUserRatings.userId=${req.params.userId} AND Favourites.userId=${req.params.userId})`)
+        sequelize.query(`SELECT Favourites.id, Favourites.userId, Favourites.productId, Products.name, Products.image_list, Products.price, Products.vat, Products.in_cart,ProductUserRatings.rating FROM Favourites LEFT JOIN Products ON (Favourites.productId = Products.id AND Favourites.userId = 1) LEFT JOIN ProductUserRatings ON (Favourites.productId = ProductUserRatings.productId AND Favourites.userId = 1) WHERE Favourites.userId = 1 LIMIT 10 OFFSET ${skipCount}`)
             .spread((results, metadata) => {
-            console.log(results);
-                result_data = GeneralController.getImageFilePath(results);
+                result_data = results;
+                // result_data = GeneralController.getImageFilePath(results);
                 res.send({data: result_data, status: true});
             }).catch((err) => {
             if (!err) {
@@ -154,21 +153,47 @@ export class ProductController {
         });
     }
 
-
-    static getProductById(req: Request, res: Response) {
-        model.Product.findOne({
-            where: {
-                id: req.params.id
+    static getProductDetailsById(req: Request, res: Response) {
+        let result_data = [];
+        let rating = 0;
+        sequelize.query(`SELECT Products.id, Products.name, Products.price, Products.vat, Products.image_list,Products.in_cart, Suppliers.name AS supplier_name, Brands.name as brand_name, Categories.name AS category_name FROM Products, Suppliers, Brands, Categories WHERE Products.supplier_id = Suppliers.id AND Products.category_id = Categories.id AND Products.brand_id = Brands.id AND Products.id = ${req.params.productId}`)
+            .spread((results,metadata)=>{
+            result_data = GeneralController.getImageFilePath(results);
+                if(results.length > 0){
+                    sequelize.query(`SELECT ProductUserRatings.rating FROM ProductUserRatings WHERE ProductUserRatings.productId = ${req.params.productId} AND ProductUserRatings.userId = ${req.params.userId}`)
+                        .spread((results,metadata)=>{
+                            if(results.length > 0) {
+                                rating = results[0].rating;
+                            }
+                            let product_details = {
+                                id: result_data[0].id,
+                                userId: req.params.userId,
+                                name: result_data[0].name,
+                                price: result_data[0].price,
+                                vat: result_data[0].vat,
+                                supplier_name: result_data[0].supplier_name,
+                                brand_name: result_data[0].brand_name,
+                                category_name: result_data[0].category_name,
+                                image_list: result_data[0].image_list,
+                                rating: rating,
+                                in_cart: result_data[0].in_cart
+                            }
+                            res.send({data:product_details,status:true});
+                        }).catch((err)=>{
+                        if(err){
+                            res.send({status:false});
+                        }else{
+                            res.send({status:true});
+                        }
+                    });
+                }
+            }).catch((err)=>{
+            if(err){
+                res.send({data: result_data, count: result_data.length, status: false});
+            }else{
+                res.send({data: result_data, count: result_data.length, status: true});
             }
-        }).then((product) => {
-            if (product) {
-                res.send({data: product, status: true});
-            } else {
-                res.send({data: {}, status: false});
-            }
-        }).catch((err) => {
-            res.send({data: {}, status: false});
-        });
+        })
     }
 
     static create(req: Request, res: Response) {
