@@ -148,9 +148,8 @@ export class ProductController {
         let category_id = 1;
         let product_details = {};
 
-        sequelize.query(`SELECT Products.id, Products.category_id, Products.name, Products.price, Products.vat, Products.image_list,Products.in_cart, Suppliers.name AS supplier_name, Brands.name as brand_name, Categories.name AS category_name, FROM Products, Suppliers, Brands, Categories WHERE Products.supplier_id = Suppliers.id AND Products.category_id = Categories.id AND Products.brand_id = Brands.id AND Products.id = ${req.params.productId}`)
+        sequelize.query(`SELECT Products.id, Products.category_id, Products.name, Products.price, Products.vat, Products.image_list,Products.in_cart, Suppliers.name AS supplier_name, Brands.name as brand_name, Categories.name AS category_name FROM Products, Suppliers, Brands, Categories WHERE Products.supplier_id = Suppliers.id AND Products.category_id = Categories.id AND Products.brand_id = Brands.id AND Products.id = ${req.params.productId}`)
             .spread((results,metadata)=>{
-            console.log(results);
                 result_data = GeneralController.getImageFilePath(results);
                 category_id = results[0].category_id;
                 if(results.length > 0){
