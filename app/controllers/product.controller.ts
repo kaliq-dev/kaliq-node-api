@@ -8,6 +8,7 @@ const model = require("../../models");
 import {Router, Request, Response} from 'express';
 import {GeneralController} from './general.controller';
 import * as _ from 'underscore';
+import {createReadStream} from "fs";
 
 const rowCount = 32;
 export class ProductController {
@@ -148,33 +149,100 @@ export class ProductController {
         let category_id = 1;
         let product_details = {};
 
+        //product data query
         sequelize.query(`SELECT Products.id, Products.category_id, Products.name, Products.price, Products.vat, Products.image_list,Products.in_cart, Suppliers.name AS supplier_name, Brands.name as brand_name, Categories.name AS category_name FROM Products, Suppliers, Brands, Categories WHERE Products.supplier_id = Suppliers.id AND Products.category_id = Categories.id AND Products.brand_id = Brands.id AND Products.id = ${req.params.productId}`)
             .spread((results,metadata)=>{
                 result_data = GeneralController.getImageFilePath(results);
                 category_id = results[0].category_id;
                 if(results.length > 0){
+                    //product rating query
                     sequelize.query(`SELECT ProductUserRatings.rating FROM ProductUserRatings WHERE ProductUserRatings.productId = ${req.params.productId} AND ProductUserRatings.userId = ${req.params.userId}`)
                         .spread((results,metadata)=>{
                             if(results.length > 0) {
                                 rating = results[0].rating;
                             }
-                            product_details = {
-                                id: result_data[0].id,
-                                userId: req.params.userId,
-                                name: result_data[0].name,
-                                price: result_data[0].price,
-                                vat: result_data[0].vat,
-                                supplier_name: result_data[0].supplier_name,
-                                brand_name: result_data[0].brand_name,
-                                category_name: result_data[0].category_name,
-                                image_list: result_data[0].image_list,
-                                rating: rating,
-                                in_cart: result_data[0].in_cart
-                            }
-                            sequelize.query("SELECT Products.id,Products.category_id,Products.supplier_id,Products.brand_id, Products.name, Products.price, Products.vat, Products.image_list, Products.rating,Products.in_cart, Suppliers.name AS supplier_name, Brands.name as brand_name, Categories.name AS category_name FROM Products, Suppliers, Brands, Categories WHERE Products.supplier_id = Suppliers.id AND Products.category_id = Categories.id AND Products.brand_id = Brands.id AND Products.category_id = " + category_id)
-                                .spread((results, metadata) => {
-                                    let data = GeneralController.getImageFilePath(results);
-                                    res.send({details: product_details, similar_products: data});
+                            sequelize.query(`SELECT * FROM Favourites WHERE Favourites.userId=${req.params.userId} AND Favourites.productId=${req.params.productId}`)
+                                .spread((results,metadata)=>{
+                                    let is_favourite = false;
+                                    if(results.length > 0){
+                                        is_favourite = true;
+                                    }
+                                    //get shopping cart of the user
+                                    sequelize.query(`SELECT id FROM ShoppingCarts WHERE ShoppingCarts.userId=${req.params.userId}`)
+                                        .spread((results,metadata)=>{
+                                            let in_cart = false;
+                                            let cart_quantity = 0;
+                                            if(results.length > 0){
+                                                //query cartitem quantity
+                                                sequelize.query(`SELECT * FROM CartItems WHERE CartItems.shoppingCartId = ${results[0].id} AND CartItems.productId=${req.params.productId}`)
+                                                    .spread((results,metadata)=>{
+                                                        if(results.length > 0){
+                                                            in_cart = true;
+                                                            cart_quantity = results[0].quantity;
+                                                        }
+                                                        product_details = {
+                                                            id: result_data[0].id,
+                                                            userId: req.params.userId,
+                                                            name: result_data[0].name,
+                                                            price: result_data[0].price,
+                                                            vat: result_data[0].vat,
+                                                            supplier_name: result_data[0].supplier_name,
+                                                            brand_name: result_data[0].brand_name,
+                                                            category_name: result_data[0].category_name,
+                                                            image_list: result_data[0].image_list,
+                                                            rating: rating,
+                                                            in_cart: in_cart,
+                                                            cart_quantity: cart_quantity,
+                                                            features: [
+                                                                "Oil-based natural wood finish",
+                                                                "Formulated to protect and preserve the natural beauty of exterior hardwood decks",
+                                                                "Provides excellent penetration of even the densest of woods",
+                                                                "U.V. barrier protection",
+                                                                "Suitable for Ipe, Tigerwood, Cumaru and other exotic hardwoods"
+                                                            ],
+                                                            specifications: {
+                                                                "length" : "229 mm",
+                                                                "breadth" : "102 mm",
+                                                                "thickness" : "76 mm",
+                                                                "size" : "229x102x76 mm",
+                                                            },
+                                                            warrenty: "3 years",
+                                                            description: "Express your vision of comfortable living with brick . Brick walks, patios and driveways add character, charm and color permanence no other paving material can match. Brick are also easy to install, whether you hire a contractor or do it yourself. Regardless of the application, a highly stable and durable paving project requires proper installation. Due to their low water absorption and high compressive strength, perform exceptionally well in a variety of applications.",
+                                                            is_favourite: is_favourite
+                                                        }
+
+                                                        //similar product query
+                                                        sequelize.query("SELECT Products.id,Products.category_id,Products.supplier_id,Products.brand_id, Products.name, Products.price, Products.vat, Products.image_list, Products.rating,Products.in_cart, Suppliers.name AS supplier_name, Brands.name as brand_name, Categories.name AS category_name FROM Products, Suppliers, Brands, Categories WHERE Products.supplier_id = Suppliers.id AND Products.category_id = Categories.id AND Products.brand_id = Brands.id AND Products.category_id = " + category_id)
+                                                            .spread((results, metadata) => {
+                                                                let similar_products = GeneralController.getImageFilePath(results);
+                                                                res.send({details: product_details, similar_products: similar_products,status: true});
+                                                            }).catch((err)=>{
+                                                            if(!err){
+                                                                res.send({details:product_details,status:true});
+
+                                                            }else{
+                                                                res.send({details:product_details,status:false});
+                                                            }
+                                                        });
+                                                    }).catch((err)=>{
+                                                    if(!err){
+                                                        res.send({details:product_details,status:true});
+                                                    }else{
+                                                        res.send({details:product_details,status:false});
+                                                    }
+                                                })
+                                            }
+                                        }).catch((err)=>{
+                                        if(!err){
+                                            res.send({details:product_details,status:true});
+                                        }else{
+                                            res.send({details:product_details,status:false});
+                                        }
+                                    })
+
+
+
+
                                 }).catch((err)=>{
                                 if(!err){
                                     res.send({details:product_details,status:true});
@@ -184,6 +252,7 @@ export class ProductController {
 
                                 }
                             })
+
                         }).catch((err)=>{
                         if(err){
                             res.send({status:false});
