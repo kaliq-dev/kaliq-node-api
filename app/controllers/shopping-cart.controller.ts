@@ -90,4 +90,21 @@ export class ShoppingCartController {
             }
         });
     }
+
+    static deleteFromCart(req: Request, res: Response){
+        sequelize.query(`DELETE FROM CartItems WHERE CartItems.productId = ${req.params.productId} AND CartItems.shoppingCartId = (SELECT id FROM ShoppingCarts WHERE ShoppingCarts.userId = ${req.params.userId})`)
+            .spread((results,metadata)=>{
+            if(results['affectedRows'] > 0){
+                res.send({data:results,status:true});
+            }else{
+                res.send({data:results,status:false});
+            }
+            }).catch((err)=>{
+                if(err){
+                    res.send({status:false});
+                }else{
+                    res.send({status:true});
+                }
+        })
+    }
 }

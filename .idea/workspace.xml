@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c888699b-f8ef-4d31-b423-232700dbcedd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/region.controller.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/routing/region-api.routes.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/brand.controller.ts" afterPath="$PROJECT_DIR$/app/controllers/brand.controller.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/category.controller.ts" afterPath="$PROJECT_DIR$/app/controllers/category.controller.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/product.controller.ts" afterPath="$PROJECT_DIR$/app/controllers/product.controller.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/shopping-cart.controller.ts" afterPath="$PROJECT_DIR$/app/controllers/shopping-cart.controller.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/db.config.ts" afterPath="$PROJECT_DIR$/app/database/db.config.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routing/brand-api.routes.ts" afterPath="$PROJECT_DIR$/app/routing/brand-api.routes.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/server.ts" afterPath="$PROJECT_DIR$/app/server.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routing/shopping-cart-api.routes.ts" afterPath="$PROJECT_DIR$/app/routing/shopping-cart-api.routes.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -41,11 +36,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="brand.controller.ts" pinned="false" current-in-tab="false">
+      <file leaf-file-name="db.config.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build/database/db.config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-131">
+              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding>
+                <marker date="1505328917000" expanded="true" signature="664:665" ph="{&quot;host&quot;: 'localhost'...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="brand.controller.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/brand.controller.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="11" column="8" lean-forward="true" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+            <state relative-caret-position="184">
+              <caret line="11" column="8" lean-forward="false" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
               <folding>
                 <element signature="e#146#171#0" expanded="true" />
               </folding>
@@ -65,20 +72,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="general.controller.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/general.controller.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="28">
-              <caret line="26" column="20" lean-forward="false" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="region-api.routes.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/routing/region-api.routes.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
+            <state relative-caret-position="253">
               <caret line="11" column="53" lean-forward="false" selection-start-line="11" selection-start-column="53" selection-end-line="11" selection-end-column="53" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
@@ -97,18 +94,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="category-api.routes.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/routing/category-api.routes.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="11" column="41" lean-forward="false" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="category.controller.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/category.controller.ts">
           <provider selected="true" editor-type-id="text-editor">
@@ -122,11 +107,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="shopping-cart-api.routes.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="shopping-cart-api.routes.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/routing/shopping-cart-api.routes.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <state relative-caret-position="354">
+              <caret line="23" column="3" lean-forward="false" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="shopping-cart.controller.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/shopping-cart.controller.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="96" column="44" lean-forward="false" selection-start-line="96" selection-start-column="44" selection-end-line="96" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -135,8 +130,8 @@
       <file leaf-file-name="db.config.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/database/db.config.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3">
-              <caret line="8" column="21" lean-forward="true" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+            <state relative-caret-position="20">
+              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -167,9 +162,11 @@
         <option value="$PROJECT_DIR$/build/database/db.config.js" />
         <option value="$PROJECT_DIR$/app/controllers/product.controller.ts" />
         <option value="$PROJECT_DIR$/app/routing/region-api.routes.ts" />
-        <option value="$PROJECT_DIR$/app/database/db.config.ts" />
         <option value="$PROJECT_DIR$/app/controllers/brand.controller.ts" />
         <option value="$PROJECT_DIR$/app/controllers/category.controller.ts" />
+        <option value="$PROJECT_DIR$/app/routing/shopping-cart-api.routes.ts" />
+        <option value="$PROJECT_DIR$/app/controllers/shopping-cart.controller.ts" />
+        <option value="$PROJECT_DIR$/app/database/db.config.ts" />
       </list>
     </option>
   </component>
@@ -185,10 +182,10 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="158" />
-    <option name="y" value="23" />
-    <option name="width" value="1702" />
-    <option name="height" value="800" />
+    <option name="x" value="448" />
+    <option name="y" value="39" />
+    <option name="width" value="1496" />
+    <option name="height" value="802" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -449,16 +446,15 @@
       <workItem from="1505079826130" duration="139000" />
       <workItem from="1505148589903" duration="5468000" />
       <workItem from="1505180561775" duration="308000" />
-      <workItem from="1505204931895" duration="12184000" />
+      <workItem from="1505204931895" duration="14010000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58741000" />
+    <option name="totallyTimeSpent" value="60567000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="158" y="23" width="1702" height="800" extended-state="0" />
-    <editor active="true" />
+    <frame x="448" y="39" width="1496" height="802" extended-state="1" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -467,9 +463,9 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16039953" sideWeight="0.504788" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27633378" sideWeight="0.4973369" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32742155" sideWeight="0.4973369" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23266745" sideWeight="0.49521205" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.49521205" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -748,13 +744,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/shopping-cart.controller.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1311">
-          <caret line="59" column="24" lean-forward="false" selection-start-line="59" selection-start-column="24" selection-end-line="59" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/routing/auth-api.routes.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -798,17 +787,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build/database/db.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-250">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="28" selection-start-column="3" selection-end-line="28" selection-end-column="6" />
-          <folding>
-            <marker date="1505319104000" expanded="true" signature="661:662" ph="{&quot;host&quot;: 'localhost'...}" />
-            <marker date="1505319104000" expanded="true" signature="661:664" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/server.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="122">
@@ -823,24 +801,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="28">
           <caret line="26" column="20" lean-forward="false" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routing/region-api.routes.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="11" column="53" lean-forward="false" selection-start-line="11" selection-start-column="53" selection-end-line="11" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/region.controller.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -865,35 +825,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/routing/brand-api.routes.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="15" column="12" lean-forward="false" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#112#162#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/db.config.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3">
-          <caret line="8" column="21" lean-forward="true" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/brand.controller.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="11" column="8" lean-forward="true" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
-          <folding>
-            <element signature="e#146#171#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/category.controller.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
@@ -907,9 +838,74 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/routing/shopping-cart-api.routes.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state relative-caret-position="354">
+          <caret line="23" column="3" lean-forward="false" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="3" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/shopping-cart.controller.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="96" column="44" lean-forward="false" selection-start-line="96" selection-start-column="44" selection-end-line="96" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/region.controller.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routing/region-api.routes.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="53" lean-forward="false" selection-start-line="11" selection-start-column="53" selection-end-line="11" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routing/brand-api.routes.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="15" column="12" lean-forward="false" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#112#162#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/db.config.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/database/db.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-131">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding>
+            <marker date="1505328917000" expanded="true" signature="664:665" ph="{&quot;host&quot;: 'localhost'...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/brand.controller.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="11" column="8" lean-forward="false" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+          <folding>
+            <element signature="e#146#171#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
