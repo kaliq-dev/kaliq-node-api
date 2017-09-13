@@ -132,8 +132,8 @@ export class ProductController {
         let skipCount = (req.params.paginationCount - 1) * 10;
         sequelize.query(`SELECT Favourites.id, Favourites.userId, Favourites.productId, Products.name, Products.image_list, Products.price, Products.vat, Products.in_cart,ProductUserRatings.rating FROM Favourites LEFT JOIN Products ON Favourites.productId = Products.id LEFT JOIN ProductUserRatings ON Favourites.productId = ProductUserRatings.productId WHERE Favourites.userId = ${req.params.userId} LIMIT 10 OFFSET ${skipCount}`)
             .spread((results, metadata) => {
-                // result_data = GeneralController.getImageFilePath(results);
-                res.send({data: results, status: true});
+                result_data = GeneralController.getImageFilePath(results);
+                res.send({data: result_data, status: true});
             }).catch((err) => {
             if (!err) {
                 res.send({data: result_data, count: result_data.length, status: true});

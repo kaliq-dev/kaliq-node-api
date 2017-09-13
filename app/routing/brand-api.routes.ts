@@ -32,5 +32,10 @@ router.delete('/delete/:id', (req: Request, res: Response) => {
     BrandController.deleteById(req, res);
 });
 
+//route for list of brand by category id
+router.get('/brand-list-by-category/:categoryId',(req: Request, res: Response)=>{
+    BrandController.getBrandByCategory(req,res);
+});
+
 
 export const BrandApiRoute: Router = router;

@@ -11,6 +11,15 @@ import {GeneralController} from './general.controller';
 
 export class BrandController {
 
+    static BrandList = [
+        {id:5,name:"3M",image_list:["3M-logo_400x400_acf_cropped.jpg"]},
+        {id:6,name:"DULUX",image_list:["_____4638770.jpg"]},
+        {id:7,name:"DEWALT",image_list:["Dewalt.jpg"]},
+        {id:8,name:"MAKITA",image_list:["Makita.jpg"]},
+        {id:9,name:"HILLMAN",image_list:["twcc404b_400x400.png"]},
+        {id:10,name: "BLACK+DECKER",image_list:["blackdecker-brand.gif"]}
+    ]
+
     constructor() {
     }
 
@@ -70,5 +79,9 @@ export class BrandController {
         }).catch((err) => {
             res.send({status: false});
         });
+    }
+
+    static getBrandByCategory(req:Request, res:Response){
+        let category_id = req.params.categoryId;
     }
 }

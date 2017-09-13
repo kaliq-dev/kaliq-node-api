@@ -9,10 +9,23 @@ import {Router, Request, Response} from 'express';
 import * as _ from 'underscore';
 import * as async from 'async';
 import {GeneralController} from './general.controller';
+import {BrandController} from './brand.controller';
 
 // const redis = require('redis');
+const brandList = BrandController.BrandList;
 
 export class CategoryController {
+    //
+    // static essentialCategoryBrandList = [
+    //     {id:1,category_id:, brand_id:},
+    //     {id:1,category_id:, brand_id:},
+    //     {id:1,category_id:, brand_id:},
+    //     {id:1,category_id:, brand_id:},
+    //     {id:1,category_id:, brand_id:},
+    //     {id:1,category_id:, brand_id:},
+    //     {id:1,category_id:, brand_id:},
+    // ]
+
     constructor() {
     }
 
@@ -122,9 +135,14 @@ export class CategoryController {
 
     static getEssentialCategory(req: Request, res: Response) {
         let result_data = [];
-        sequelize.query("SELECT * FROM Categories WHERE name IN ('CEMENT','STEEL','SAND','BLOCK','READYMIX','LUMBER')")
+        let price = 100;
+        sequelize.query("SELECT * FROM Categories WHERE id IN (6,31,29,5,28,35)")
             .spread((results, metadata) => {
                 result_data = GeneralController.getImageFilePath(results);
+                result_data['data'] = result_data.map((item)=>{
+                    item['price'] = price;
+                    price += 150;
+                });
                 res.send({data: result_data, count: result_data.length, status: true});
             }).catch((err) => {
             if (err) {
