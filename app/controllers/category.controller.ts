@@ -10,23 +10,114 @@ import * as _ from 'underscore';
 import * as async from 'async';
 import {GeneralController} from './general.controller';
 import {BrandController} from './brand.controller';
+import {version} from "punycode";
 
 // const redis = require('redis');
 const brandList = BrandController.BrandList;
 
 export class CategoryController {
-    //
-    // static essentialCategoryBrandList = [
-    //     {id:1,category_id:, brand_id:},
-    //     {id:1,category_id:, brand_id:},
-    //     {id:1,category_id:, brand_id:},
-    //     {id:1,category_id:, brand_id:},
-    //     {id:1,category_id:, brand_id:},
-    //     {id:1,category_id:, brand_id:},
-    //     {id:1,category_id:, brand_id:},
-    // ]
+
+    //essential category's brand list
+    static essentialCategoryBrandList = [
+        {id:1,category_id:5, brand_id:5},
+        {id:2,category_id:5, brand_id:6},
+        {id:3,category_id:5, brand_id:7},
+        {id:4,category_id:5, brand_id:8},
+        {id:5,category_id:6, brand_id:9},
+        {id:6,category_id:6, brand_id:10},
+        {id:7,category_id:28, brand_id:5},
+        {id:8,category_id:28, brand_id:6},
+        {id:9,category_id:28, brand_id:7},
+        {id:10,category_id:28, brand_id:10},
+        {id:11,category_id:28, brand_id:9},
+        {id:12,category_id:28, brand_id:8},
+        {id:13,category_id:28, brand_id:7},
+        {id:14,category_id:28, brand_id:6},
+        {id:15,category_id:28, brand_id:5},
+        {id:16,category_id:29, brand_id:5},
+        {id:17,category_id:29, brand_id:6},
+        {id:18,category_id:29, brand_id:7},
+        {id:19,category_id:29, brand_id:10},
+        {id:20,category_id:31, brand_id:10},
+        {id:21,category_id:31, brand_id:9},
+        {id:22,category_id:31, brand_id:5},
+        {id:23,category_id:31, brand_id:6}
+    ];
+
+
+    static subCategoryList = [
+        {id:1,name: "OPC",parent_category_id:6},
+        {id:2,name:"RHC",parent_category_id:6},
+        {id:3,name:"Holcim",parent_category_id:6},
+        {id:4,name:"Cemex",parent_category_id:6},
+        {id:5,name:"HeidelbergCement",parent_category_id:6},
+        {id:6,name:"UltraTech",parent_category_id:6},
+        {id:7,name:"Buzzi",parent_category_id:6},
+        {id:8,name:"6-40 mm TMT Bars",parent_category_id:31},
+        {id:9,name:"HSD Steel Bars",parent_category_id:31},
+        {id:10,name:"ArcelorMittal",parent_category_id:31},
+        {id:11,name:"Star Steel",parent_category_id:31},
+        {id:12,name:"Qatar Steel",parent_category_id:31},
+        {id:13,name:"Crushed Washed Sand",parent_category_id:29},
+        {id:14,name:"Crushed Unwashed Sand",parent_category_id:29},
+        {id:15,name:"Natural Washed Sand",parent_category_id:29},
+        {id:16,name:"Plaster Sand",parent_category_id:29},
+        {id:17,name:"Hollow Blocks",parent_category_id:8},
+        {id:18,name:"Solid Blocks",parent_category_id:8},
+        {id:19,name:"Insulated Blocks",parent_category_id:8},
+        {id:20,name:"Thermal Blocks",parent_category_id:8},
+        {id:21,name:"Roof Tiles",parent_category_id:8},
+        {id:22,name:"50 to 5000 SQM",parent_category_id:28},
+        {id:23,name:"Thick",parent_category_id:28},
+        {id:24,name:"Medium",parent_category_id:28},
+        {id:25,name:"Light",parent_category_id:28},
+        {id:26,name:"Gypsum Boards & Drywall",parent_category_id:35},
+        {id:27,name:"Hardboard and Thin MDF",parent_category_id:35},
+        {id:28,name:"Softwood Lumber",parent_category_id:35},
+        {id:29,name:"Plywood",parent_category_id:35},
+        {id:30,name:"Doors",parent_category_id:35},
+        {id:31,name:"Decore",parent_category_id:35},
+        {id:32,name:"Tapes",parent_category_id:4},
+        {id:33,name:"Sealants",parent_category_id:4},
+        {id:34,name:"Adhesives & Glues",parent_category_id:4},
+        {id:35,name:"Cyanoacrylate Adhesives",parent_category_id:4},
+        {id:36,name:"Switches",parent_category_id:11},
+        {id:37,name:"Sockets",parent_category_id:11},
+        {id:38,name:"Plugs and Connectors",parent_category_id:11},
+        {id:39,name:"Cable Accessories",parent_category_id:11},
+        {id:40,name:"Inverters",parent_category_id:11},
+        {id:41,name:"Safety Gloves",parent_category_id:11},
+        {id:42,name:"CC CAM Solutions",parent_category_id:30},
+        {id:43,name:"Fire Alarm Systems",parent_category_id:30},
+        {id:44,name:"Industrial Workwear",parent_category_id:30},
+        {id:45,name:"Safety Kit",parent_category_id:30},
+        {id:46,name:"Anti-Static & Esd Equipment",parent_category_id:30},
+    ];
 
     constructor() {
+    }
+
+
+    static getBrandListByCategory(req:Request,res:Response){
+        let newData = [];
+
+        let result_list = _.filter(CategoryController.essentialCategoryBrandList,(item)=>{
+            return item['category_id'] == req.params.categoryId;
+        });
+
+        _.each(result_list,(item)=>{
+            let data = _.find((brandList),(el)=>{
+                return el['id'] == item['brand_id'];
+            });
+            item['brand_details'] = data;
+            newData.push(item);
+        });
+
+        if(newData.length > 0){
+            res.send({data:newData,count:newData.length,status:true});
+        }else{
+            res.send({data:newData,count:newData.length,status:false});
+        }
     }
 
     static getCategoryById(req: Request, res: Response) {
@@ -136,7 +227,7 @@ export class CategoryController {
     static getEssentialCategory(req: Request, res: Response) {
         let result_data = [];
         let price = 100;
-        sequelize.query("SELECT * FROM Categories WHERE id IN (6,31,29,5,28,35)")
+        sequelize.query("SELECT * FROM Categories WHERE id IN (6,31,29,5,28)")
             .spread((results, metadata) => {
                 result_data = GeneralController.getImageFilePath(results);
                 result_data['data'] = result_data.map((item)=>{

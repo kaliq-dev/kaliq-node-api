@@ -37,4 +37,9 @@ router.delete('/delete/:id', (req: Request, res: Response) => {
     CategoryController.deleteById(req, res);
 });
 
+//get brand list by essential category id
+router.get('/brand-list/:categoryId',(req: Request, res: Response)=>{
+    CategoryController.getBrandListByCategory(req,res);
+});
+
 export const CategoryApiRoute: Router = router;

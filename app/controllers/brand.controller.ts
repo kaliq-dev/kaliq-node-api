@@ -59,7 +59,6 @@ export class BrandController {
             order: [['createdAt', 'DESC']]
         }).then((brand) => {
             result_data = GeneralController.getImageFilePath(brand);
-            // result_data = GeneralController.getBase64Image(brand);
             return res.send({data: result_data, count: result_data.length, status: true});
         }).catch((err) => {
             if (err) {

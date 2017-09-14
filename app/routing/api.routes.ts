@@ -9,6 +9,7 @@ import {HomeController} from '../controllers/home.controller';
 
 const router: Router = Router();
 
+
 router.get('/', (req: Request, res: Response) => {
     res.send("Welcome to API routes");
 });

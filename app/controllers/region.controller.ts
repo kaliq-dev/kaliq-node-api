@@ -65,7 +65,6 @@ export class RegionController {
         res.send({region_list: region_list,count: region_list.length,status:true});
     }
 
-
     static getCityListByRegion(req:Request,res:Response){
         let city_list = [];
         RegionController.CityList.map((item)=>{
