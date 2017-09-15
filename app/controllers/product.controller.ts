@@ -13,6 +13,35 @@ import {createReadStream} from "fs";
 const rowCount = 32;
 export class ProductController {
 
+    static TypeList = [
+        {id:1,name:"Fine"},
+        {id:2,name:"Boulder"},
+        {id:3,name:"Plaster"},
+        {id:4,name:"TMT"},
+        {id:5,name:"RCC"},
+        {id:6,name:"PCC"}
+    ];
+
+    static GradeList = [
+        {id:1,name:"6-40mm"},
+        {id:2,name:"A"},
+        {id:3,name:"A+"},
+        {id:4,name:"24sqm"},
+        {id:5,name:"48sqm"},
+        {id:6,name:"4T"},
+        {id:7,name:"2T"},
+        {id:8,name:"1T"}
+    ];
+
+    static PackageList = [
+        {id:1,name:"10TON"},
+        {id:2,name:"15KG"},
+        {id:3,name:"25TON"},
+        {id:4,name:"50KG"},
+        {id:5,name:"100KG"},
+        {id:6,name:"5 TON"}
+    ]
+
     constructor() {
     }
 
@@ -252,7 +281,6 @@ export class ProductController {
 
                                 }
                             })
-
                         }).catch((err)=>{
                         if(err){
                             res.send({status:false});

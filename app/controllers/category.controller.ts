@@ -12,6 +12,7 @@ import {GeneralController} from './general.controller';
 import {BrandController} from './brand.controller';
 import {version} from "punycode";
 
+
 // const redis = require('redis');
 const brandList = BrandController.BrandList;
 
@@ -93,6 +94,56 @@ export class CategoryController {
         {id:45,name:"Safety Kit",parent_category_id:30},
         {id:46,name:"Anti-Static & Esd Equipment",parent_category_id:30},
     ];
+
+   static subCategoryProductList = [
+        {id:1,sub_category_id:1,product_ids:[1,5,6]},
+        {id:2,sub_category_id:2,product_ids:[7,23,24]},
+        {id:3,sub_category_id:3,product_ids:[25,26,27]},
+        {id:4,sub_category_id:4,product_ids:[8,9,10]},
+        {id:5,sub_category_id:5,product_ids:[11,12,18]},
+        {id:6,sub_category_id:6,product_ids:[19,20,21]},
+        {id:7,sub_category_id:7,product_ids:[22,13,14]},
+        {id:8,sub_category_id:8,product_ids:[15,16,17]},
+        {id:9,sub_category_id:9,product_ids:[28,29,30]},
+        {id:10,sub_category_id:10,product_ids:[31,32,1]},
+        {id:11,sub_category_id:11,product_ids:[1,5,6]},
+        {id:12,sub_category_id:12,product_ids:[7,23,24]},
+        {id:13,sub_category_id:13,product_ids:[25,26,27]},
+        {id:14,sub_category_id:14,product_ids:[8,9,10]},
+        {id:15,sub_category_id:15,product_ids:[11,12,18]},
+        {id:16,sub_category_id:16,product_ids:[19,20,21]},
+        {id:17,sub_category_id:17,product_ids:[22,13,14]},
+        {id:18,sub_category_id:18,product_ids:[15,16,17]},
+        {id:19,sub_category_id:19,product_ids:[28,29,30]},
+        {id:20,sub_category_id:20,product_ids:[31,32,1]},
+        {id:21,sub_category_id:21,product_ids:[1,5,6]},
+        {id:22,sub_category_id:22,product_ids:[7,23,24]},
+        {id:23,sub_category_id:23,product_ids:[28,29,30]},
+        {id:24,sub_category_id:24,product_ids:[15,16,17]},
+        {id:25,sub_category_id:25,product_ids:[1,5,6]},
+        {id:26,sub_category_id:26,product_ids:[31,32,1]},
+        {id:27,sub_category_id:27,product_ids:[7,23,24]},
+        {id:28,sub_category_id:28,product_ids:[31,32,1]},
+        {id:29,sub_category_id:29,product_ids:[1,5,6]},
+        {id:30,sub_category_id:30,product_ids:[1,5,6]},
+        {id:31,sub_category_id:31,product_ids:[28,29,30]},
+        {id:32,sub_category_id:32,product_ids:[15,16,17]},
+        {id:33,sub_category_id:33,product_ids:[31,32,1]},
+        {id:34,sub_category_id:34,product_ids:[28,29,30]},
+        {id:35,sub_category_id:35,product_ids:[1,5,6]},
+        {id:36,sub_category_id:36,product_ids:[1,5,6]},
+        {id:37,sub_category_id:37,product_ids:[15,16,17]},
+        {id:38,sub_category_id:38,product_ids:[31,32,1]},
+        {id:39,sub_category_id:39,product_ids:[28,29,30]},
+        {id:40,sub_category_id:40,product_ids:[7,23,24]},
+        {id:41,sub_category_id:41,product_ids:[28,29,30]},
+        {id:42,sub_category_id:42,product_ids:[31,32,1]},
+        {id:43,sub_category_id:43,product_ids:[7,23,24]},
+        {id:44,sub_category_id:44,product_ids:[15,16,17]},
+        {id:45,sub_category_id:45,product_ids:[28,29,30]},
+        {id:46,sub_category_id:46,product_ids:[1,5,6]}
+    ];
+
 
     constructor() {
     }
@@ -244,4 +295,70 @@ export class CategoryController {
         })
     }
 
+
+    //get product list of each sub-category of a particular category
+    static getProductListByCategory(req: Request, res: Response){
+        let skipCount = (req.params.paginationCount - 1) * 10;
+
+        function callback() {
+            console.log("callback");
+        }
+
+        let categoryId = req.params.categoryId;
+        //get sub-category list of the category
+        let subCategoryList = _.filter(CategoryController.subCategoryList,(item)=>{
+            return item.parent_category_id == categoryId;
+        });
+        let result_data = [];
+        async.map(subCategoryList,function(item,callback){
+           //get product list of that sub-category
+            let data = {
+                category_id: req.params.categoryId,
+                sub_category_id: item.id,
+                product_list: []
+            };
+
+            let product_list = _.filter(CategoryController.subCategoryProductList,(product)=>{
+                return product.sub_category_id == item.id;
+            });
+
+            let product_ids =  product_list[0].product_ids;
+            //DB query for products of product_ids
+            sequelize.query(`SELECT Products.id, Products.name, Products.price, Products.vat, Products.image_list, Products.rating,Products.in_cart, Suppliers.name AS supplier_name, Brands.name as brand_name, Categories.name AS category_name FROM Products, Suppliers, Brands, Categories WHERE Products.supplier_id = Suppliers.id AND Products.category_id = Categories.id AND Products.brand_id = Brands.id AND Products.id IN (${product_ids}) LIMIT 10 OFFSET ${skipCount}`)
+                .spread((results,metadata)=>{
+                    data['product_list'] = GeneralController.getImageFilePath(results);
+                   callback(null, data);
+                }).catch((err)=>{
+                    console.log(err);
+                    callback(err, null)
+            });
+            // result_data.push(data);
+       },function(err, results){
+            if(!err){
+                res.send({results: results,status:true});
+            }else{
+                res.send({error:err,status:false});
+            }
+        });
+    }
+
+
+    static getProductListBySubCategory(req: Request, res: Response){
+        let subCategoryId = req.params.subcategoryId;
+        let result_data = [];
+        let skipCount = (req.params.paginationCount - 1) * 10;
+        let product_list = _.filter(CategoryController.subCategoryProductList,(item)=>{
+                return item['sub_category_id'] == subCategoryId;
+        });
+
+        let product_ids =  product_list[0].product_ids;
+
+        sequelize.query(`SELECT Products.id, Products.name, Products.price, Products.vat, Products.image_list, Products.rating,Products.in_cart, Suppliers.name AS supplier_name, Brands.name as brand_name, Categories.name AS category_name FROM Products, Suppliers, Brands, Categories WHERE Products.supplier_id = Suppliers.id AND Products.category_id = Categories.id AND Products.brand_id = Brands.id AND Products.id IN (${product_ids}) LIMIT 10 OFFSET ${skipCount}`)
+            .spread((results,metadata)=>{
+                result_data = GeneralController.getImageFilePath(results);
+                res.send({data:result_data,count:result_data.length,status:true});
+            }).catch((err)=>{
+            res.send({data:result_data,count:result_data.length,status:false});
+        });
+    }
 }

@@ -42,4 +42,14 @@ router.get('/brand-list/:categoryId',(req: Request, res: Response)=>{
     CategoryController.getBrandListByCategory(req,res);
 });
 
+//get product list of sub-categories based on category
+router.get('/product-list-by-category/:categoryId/page/:paginationCount',(req: Request, res: Response)=>{
+    CategoryController.getProductListByCategory(req,res);
+});
+
+//get product list by sub category
+router.get('/product-list-by-subcategory/:subcategoryId/page/:paginationCount',(req: Request, res: Response)=>{
+    CategoryController.getProductListBySubCategory(req,res);
+});
+
 export const CategoryApiRoute: Router = router;
