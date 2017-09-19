@@ -12,7 +12,7 @@ import {ProductApiRoute} from "./routing/product-api.routes";
 import {AuthApiRoute} from "./routing/auth-api.routes";
 import {ShoppingCartApiRoute} from "./routing/shopping-cart-api.routes";
 import {RegionApiRoute} from "./routing/region-api.routes";
-
+import {CheckoutApiRoute} from "./routing/checkout-api.routes";
 const bodyParser = require("body-parser");
 const config = require('./config/main');
 const logger = require('morgan');
@@ -52,6 +52,7 @@ app.use('/api/product', ProductApiRoute);
 app.use('/api/auth', AuthApiRoute);
 app.use('/api/cart', ShoppingCartApiRoute);
 app.use('/api/region',RegionApiRoute);
+app.use('/api/checkout',CheckoutApiRoute);
 /*
 app.use('/api/cart',CartApiRoute);
 */
@@ -99,7 +100,6 @@ function readImageFiles() {
     });
 }
 
-
 app.listen(config.port, () => {
     // readImageFiles();
     console.log(`Listening at port :${config.port}`);
@@ -108,7 +108,7 @@ app.listen(config.port, () => {
             console.log('Connection has been established successfully');
         })
         .catch((err) => {
-            console.log("Unable to connect to datbase", err);
+            console.log("Unable to connect to database", err);
         })
 });
 

@@ -144,10 +144,8 @@ export class CategoryController {
         {id:46,sub_category_id:46,product_ids:[1,5,6]}
     ];
 
-
     constructor() {
     }
-
 
     static getBrandListByCategory(req:Request,res:Response){
         let newData = [];
@@ -315,6 +313,7 @@ export class CategoryController {
             let data = {
                 category_id: req.params.categoryId,
                 sub_category_id: item.id,
+                sub_category_name: item.name,
                 product_list: []
             };
 

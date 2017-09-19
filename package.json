@@ -17,7 +17,6 @@
     "busboy": "^0.2.14",
     "chokidar": "^1.7.0",
     "concurrently": "^3.4.0",
-    "crypto": "^1.0.1",
     "express": "^4.15.2",
     "jsonwebtoken": "^7.4.2",
     "mongoose": "^4.9.2",
@@ -27,7 +26,7 @@
     "passport-jwt": "^2.2.1",
     "passport-local": "^1.0.0",
     "sequelize": "^4.1.0",
-    "underscore": "^1.8.3"
+    "underscore": "latest"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"

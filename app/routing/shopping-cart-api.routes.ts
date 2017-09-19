@@ -17,7 +17,6 @@ router.get('/delete-shopping-cart/:shoppingCartId', (req: Request, res: Response
 
 });
 
-
 //delete an item from the cart of that user
 router.get('/delete-item/productId/:productId/userId/:userId',(req: Request, res: Response)=>{
    ShoppingCartController.deleteFromCart(req,res);

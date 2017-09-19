@@ -12,13 +12,13 @@ import {GeneralController} from './general.controller';
 export class BrandController {
 
     static BrandList = [
-        {id:5,name:"3M",image_list:["3M-logo_400x400_acf_cropped.jpg"]},
-        {id:6,name:"DULUX",image_list:["_____4638770.jpg"]},
-        {id:7,name:"DEWALT",image_list:["Dewalt.jpg"]},
-        {id:8,name:"MAKITA",image_list:["Makita.jpg"]},
-        {id:9,name:"HILLMAN",image_list:["twcc404b_400x400.png"]},
-        {id:10,name: "BLACK+DECKER",image_list:["blackdecker-brand.gif"]}
-    ]
+        {id:5,name:"3M",image_list:["3M-logo_400x400_acf_cropped.jpg"],price:150},
+        {id:6,name:"DULUX",image_list:["_____4638770.jpg"],price:250},
+        {id:7,name:"DEWALT",image_list:["Dewalt.jpg"],price: 150},
+        {id:8,name:"MAKITA",image_list:["Makita.jpg"],price: 400},
+        {id:9,name:"HILLMAN",image_list:["twcc404b_400x400.png"],price: 500},
+        {id:10,name: "BLACK+DECKER",image_list:["blackdecker-brand.gif"],price:650}
+    ];
 
     constructor() {
     }
